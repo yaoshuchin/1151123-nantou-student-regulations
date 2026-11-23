@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南投縣立南投國中 學生獎懲要點暨改過銷過辦法 互動查詢系統</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#0d9488',
+                            600: '#0f766e',
+                            700: '#115e59',
+                            800: '#134e4a',
+                            900: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .highlight {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 0 2px;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+        .dark .highlight {
+            background-color: #854d0e;
+            color: #fef08a;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
+
+    <!-- 密碼登入鎖定畫面 -->
+    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-md px-4">
+        <div id="auth-card" class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full p-8 border border-slate-200 dark:border-slate-700 text-center transition-all">
+            <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">南投縣立南投國中</h2>
+            <p class="text-sm font-medium text-teal-700 dark:text-teal-300 mb-6">學生獎懲要點暨改過銷過辦法 查詢系統</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">本系統受存取密碼保護，請輸入密碼以解鎖檢閱：</p>
+            
+            <form id="auth-form" onsubmit="handleAuth(event)" class="space-y-4">
+                <div class="relative">
+                    <input type="password" id="auth-input" maxlength="10" placeholder="請輸入密碼" 
+                        class="w-full px-4 py-3 text-center text-lg tracking-widest font-mono rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 dark:text-white outline-none transition" autofocus autocomplete="off" />
+                </div>
+                <div id="auth-error" class="hidden text-xs text-rose-500 font-semibold flex items-center justify-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                    <span>密碼錯誤，請重新輸入</span>
+                </div>
+                <button type="submit" 
+                    class="w-full py-3 px-4 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-semibold rounded-xl shadow-lg shadow-teal-600/20 transition-all flex items-center justify-center gap-2">
+                    <span>解鎖進入系統</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+            </form>
+            <div class="mt-5 text-[11px] text-slate-400">
+                南投國中學務處 生教組 備案
+            </div>
+        </div>
+    </div>
+
+    <!-- 主應用介面 -->
+    <div id="app-container" class="hidden min-h-screen flex flex-col">
+        <!-- 頂部導航 -->
+        <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-3">
+                        <span class="p-2 bg-teal-600 text-white rounded-xl shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </span>
+                        <div>
+                            <h1 class="text-base sm:text-lg font-bold leading-tight">南投國中 學生獎懲要點查詢系統</h1>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">114年1月20日校務會議通過版本</p>
+                        </div>
+                    </div>
+
+                    <!-- 右側功能鈕 -->
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <a href="南投縣立南投國中獎懲要點暨改過銷過辦法.docx" download class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition border border-slate-200 dark:border-slate-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            下載 Word 檔
+                        </a>
+                        <!-- 切換深淺模式 -->
+                        <button onclick="toggleDarkMode()" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition" title="切換外觀風格">
+                            <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+                            </svg>
+                            <svg id="theme-icon-light" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                            </svg>
+                        </button>
+                        <!-- 登出/鎖定 -->
+                        <button onclick="lockSystem()" class="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-lg transition" title="重新鎖定系統">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 分頁按鈕 -->
+                <div class="flex border-t border-slate-200/60 dark:border-slate-800 -mb-px space-x-6 text-sm font-medium">
+                    <button onclick="switchTab('query')" id="tab-btn-query" class="py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <span>分類與條文查詢</span>
+                    </button>
+                    <button onclick="switchTab('clearance')" id="tab-btn-clearance" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span>改過銷過要點與試算</span>
+                    </button>
+                    <button onclick="switchTab('fulltext')" id="tab-btn-fulltext" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>法規全文閱覽</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主體內容 -->
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+            <!-- TAB 1: 分類查詢 -->
+            <div id="tab-query" class="space-y-6">
+                <!-- 搜尋與篩選列 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-700 space-y-4">
+                    <!-- 搜尋輸入框 -->
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text" id="search-input" oninput="applyFilters()" placeholder="搜尋關鍵字，例如：拾金不昧、行動載具、抽煙、毀損公物、服裝儀容、銷過..."
+                            class="w-full pl-11 pr-10 py-3 bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white dark:focus:bg-slate-700 transition">
+                        <button id="clear-search" onclick="clearSearch()" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 獎懲主類別選單 (Tabs) -->
+                    <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-700/60">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">類型：</span>
+                        <button onclick="setMainType('all')" id="type-btn-all" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-teal-600 text-white shadow-sm">全部 (88)</button>
+                        <button onclick="setMainType('reward')" id="type-btn-reward" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 hover:text-emerald-700">獎勵措施 (32)</button>
+                        <button onclick="setMainType('penalty')" id="type-btn-penalty" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-700">懲處措施 (56)</button>
+                    </div>
+
+                    <!-- 子層級（嘉獎/小功/大功/警告/小過/大過）篩選按鈕 -->
+                    <div class="flex flex-wrap items-center gap-1.5 text-xs">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">等級：</span>
+                        <button onclick="setLevel('all')" id="level-btn-all" class="level-pill px-2.5 py-1 rounded-md font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100">不限</button>
+                        <button onclick="setLevel('嘉獎')" id="level-btn-嘉獎" class="level-pill px-2.5 py-1 rounded-md font-medium bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 hover:bg-emerald-100 border border-emerald-200/50">嘉獎 (12)</button>
+                        <button onclick="setLevel('小功')" id="level-btn-小功" class="level-pill px-2.5 py-1 rounded-md font-medium bg-teal-50 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 hover:bg-teal-100 border border-teal-200/50">小功 (13)</button>
+                        <button onclick="setLevel('大功')" id="level-btn-大功" class="level-pill px-2.5 py-1 rounded-md font-medium bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 hover:bg-blue-100 border border-blue-200/50">大功 (7)</button>
+                        <span class="text-slate-300 dark:text-slate-700">|</span>
+                        <button onclick="setLevel('警告')" id="level-btn-警告" class="level-pill px-2.5 py-1 rounded-md font-medium bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 hover:bg-amber-100 border border-amber-200/50">警告 (16)</button>
+                        <button onclick="setLevel('小過')" id="level-btn-小過" class="level-pill px-2.5 py-1 rounded-md font-medium bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300 hover:bg-orange-100 border border-orange-200/50">小過 (22)</button>
+                        <button onclick="setLevel('大過')" id="level-btn-大過" class="level-pill px-2.5 py-1 rounded-md font-medium bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 hover:bg-rose-100 border border-rose-200/50">大過 (18)</button>
+                    </div>
+
+                    <!-- 主題關鍵標籤快速點選 -->
+                    <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs text-slate-500">
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">情境：</span>
+                        <button onclick="filterByTag('')" id="tag-btn-all" class="tag-pill px-2 py-0.5 rounded text-teal-600 dark:text-teal-400 font-medium underline">全部主題</button>
+                        <button onclick="filterByTag('公物環境')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">公物環境</button>
+                        <button onclick="filterByTag('常規秩序')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">常規秩序</button>
+                        <button onclick="filterByTag('拾金不昧')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">拾物招領</button>
+                        <button onclick="filterByTag('言行法紀')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">言行侮辱/恐嚇</button>
+                        <button onclick="filterByTag('行動載具')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">校園行動載具</button>
+                        <button onclick="filterByTag('違禁物品')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">攜帶違法違禁品</button>
+                        <button onclick="filterByTag('校園暴力')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">暴力/鬥毆/勒索</button>
+                        <button onclick="filterByTag('性平與霸凌')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">性騷擾/霸凌認定</button>
+                        <button onclick="filterByTag('競賽活動')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">競賽優異/出賽</button>
+                        <button onclick="filterByTag('交通安全')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">道路交通安全</button>
+                    </div>
+                </div>
+
+                <!-- 搜尋結果統計與排序 -->
+                <div class="flex items-center justify-between text-xs text-slate-500 px-1">
+                    <div>
+                        符合條件項目：<span id="results-count" class="font-bold text-teal-600 dark:text-teal-400">88</span> 筆
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span>點擊卡片可快速複製條文內容</span>
+                    </div>
+                </div>
+
+                <!-- 卡片列表容器 -->
+                <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    <!-- Cards will be populated dynamically -->
+                </div>
+
+                <!-- 無搜尋結果提示 -->
+                <div id="no-results" class="hidden text-center py-16 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <svg class="mx-auto h-12 w-12 text-slate-300 dark:text-slate-600 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p class="text-base font-semibold text-slate-600 dark:text-slate-300">查無符合條件的獎懲要點條文</p>
+                    <p class="text-xs text-slate-400 mt-1">請嘗試減少或更換搜尋關鍵字，或重設篩選條件</p>
+                    <button onclick="resetAllFilters()" class="mt-4 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold rounded-lg transition">重設所有篩選</button>
+                </div>
+            </div>
+
+            <!-- TAB 2: 改過銷過要點與試算 -->
+            <div id="tab-clearance" class="hidden space-y-6">
+                <!-- 第四條重點導讀與試算工具 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- 左兩欄：要點內容與規範解析 -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700">
+                            <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-lg mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <h2>第四條 改過銷過申請原則與考核程序</h2>
+                            </div>
+                            
+                            <div class="prose dark:prose-invert max-w-none text-sm text-slate-600 dark:text-slate-300 space-y-3 leading-relaxed">
+                                <p class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-xl border-l-4 border-teal-500">
+                                    改過銷過之申請得由學校有關人員或受懲罰之學生向<strong>學務處</strong>領取表格，填妥資料由<strong>導師簽註具體事實</strong>：
+                                    <br>• <strong>小過以下之處分</strong>：由<strong>學務主任</strong>核定。
+                                    <br>• <strong>大過以上之處分</strong>：提<strong>學生獎懲委員會</strong>討論議決，由<strong>校長</strong>核定。
+                                </p>
+
+                                <h3 class="font-bold text-slate-800 dark:text-white pt-2">一、申請要件與考核期間</h3>
+                                <ul class="list-disc pl-5 space-y-1.5">
+                                    <li>經考察確有改過自新者。</li>
+                                    <li>申請改過、銷過應於下列考核時段期滿後為之：
+                                        <div class="grid grid-cols-3 gap-3 my-2 text-center">
+                                            <div class="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-200/60">
+                                                <div class="text-xs text-amber-700 dark:text-amber-300 font-semibold">警告</div>
+                                                <div class="text-lg font-bold text-amber-900 dark:text-amber-200">3 週以上</div>
+                                            </div>
+                                            <div class="p-3 bg-orange-50 dark:bg-orange-950/30 rounded-xl border border-orange-200/60">
+                                                <div class="text-xs text-orange-700 dark:text-orange-300 font-semibold">小過</div>
+                                                <div class="text-lg font-bold text-orange-900 dark:text-orange-200">6 週以上</div>
+                                            </div>
+                                            <div class="p-3 bg-rose-50 dark:bg-rose-950/30 rounded-xl border border-rose-200/60">
+                                                <div class="text-xs text-rose-700 dark:text-rose-300 font-semibold">大過</div>
+                                                <div class="text-lg font-bold text-rose-900 dark:text-rose-200">9 週以上</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <h3 class="font-bold text-slate-800 dark:text-white pt-2">二、除外條款與限制</h3>
+                                <div class="bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/50 p-4 rounded-xl text-rose-800 dark:text-rose-300 text-xs space-y-2">
+                                    <div class="flex items-start gap-2">
+                                        <span class="font-bold shrink-0">⚠️ 國三畢業前限制：</span>
+                                        <span>三年級下學期公佈之懲罰<strong>不適用之</strong>。</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span class="font-bold shrink-0">⚠️ 同年再犯限制：</span>
+                                        <span>經銷過之行為，於<strong>同一學年內再犯者</strong>，亦不適用銷過。</span>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <span class="font-bold shrink-0">⚠️ 轉學生規定：</span>
+                                        <span>轉學生於學籍轉入<strong>三個月後表現良好</strong>，經由學生向導師或學務處申請認可後，方得進行銷過事宜。</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 流程指引圖卡 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700">
+                            <h3 class="font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                </svg>
+                                銷過申請標準作業流程 (SOP)
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                                    <div>
+                                        <span class="inline-block w-5 h-5 bg-teal-600 text-white rounded-full text-center leading-5 font-bold mb-2">1</span>
+                                        <div class="font-bold text-slate-800 dark:text-white mb-1">領表登記</div>
+                                        <p class="text-slate-500 dark:text-slate-400">至學務處生教組領取改過銷過申請表，受罰學生填寫基本資料。</p>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                                    <div>
+                                        <span class="inline-block w-5 h-5 bg-teal-600 text-white rounded-full text-center leading-5 font-bold mb-2">2</span>
+                                        <div class="font-bold text-slate-800 dark:text-white mb-1">考察期自新</div>
+                                        <p class="text-slate-500 dark:text-slate-400">依處分等級完成考察期（警告3週/小過6週/大過9週），表現良好。</p>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                                    <div>
+                                        <span class="inline-block w-5 h-5 bg-teal-600 text-white rounded-full text-center leading-5 font-bold mb-2">3</span>
+                                        <div class="font-bold text-slate-800 dark:text-white mb-1">導師簽註具體事實</div>
+                                        <p class="text-slate-500 dark:text-slate-400">由班級導師詳述考核期間具體改過表現與輔導紀錄並簽章。</p>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 flex flex-col justify-between">
+                                    <div>
+                                        <span class="inline-block w-5 h-5 bg-teal-600 text-white rounded-full text-center leading-5 font-bold mb-2">4</span>
+                                        <div class="font-bold text-slate-800 dark:text-white mb-1">核定與公告</div>
+                                        <p class="text-slate-500 dark:text-slate-400">小過以下學務主任核定；大過提獎懲會審查並呈校長核定。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右一欄：即時考核期試算小工具 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200/80 dark:border-slate-700 h-fit space-y-5">
+                        <div class="flex items-center gap-2 text-slate-800 dark:text-white font-bold text-base pb-3 border-b border-slate-100 dark:border-slate-700">
+                            <span class="p-1.5 bg-amber-500 text-white rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                            </span>
+                            <h3>改過銷過考核期 試算工具</h3>
+                        </div>
+
+                        <div class="space-y-4 text-xs">
+                            <div>
+                                <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">懲處項目等級：</label>
+                                <select id="calc-level" onchange="runCalculator()" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-800 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none">
+                                    <option value="3">警告（需滿 3 週 / 21 天）</option>
+                                    <option value="6">小過（需滿 6 週 / 42 天）</option>
+                                    <option value="9">大過（需滿 9 週 / 63 天）</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">處分公告 / 發生日期：</label>
+                                <input type="date" id="calc-date" onchange="runCalculator()" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-800 dark:text-white focus:ring-2 focus:ring-teal-500 outline-none">
+                            </div>
+
+                            <div class="p-4 bg-teal-50/60 dark:bg-teal-950/30 rounded-xl border border-teal-100 dark:border-teal-900/50 space-y-2">
+                                <div class="text-slate-500 dark:text-slate-400">最快得提出改過銷過日期：</div>
+                                <div id="calc-result-date" class="text-xl font-extrabold text-teal-700 dark:text-teal-300 font-mono tracking-wide">
+                                    請選擇日期
+                                </div>
+                                <div id="calc-countdown" class="text-[11px] text-slate-500 dark:text-slate-400">
+                                    依本要點第四條第(二)款計算
+                                </div>
+                            </div>
+
+                            <div class="text-[11px] text-slate-400 dark:text-slate-500 leading-normal bg-slate-50 dark:bg-slate-700/30 p-3 rounded-lg">
+                                💡 提醒：申請前需確定同一學年內未再犯相同情事；若為九年級下學期公告之處分，依第四條後段規定不適用銷過。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: 法規全文閱覽 -->
+            <div id="tab-fulltext" class="hidden">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200/80 dark:border-slate-700 max-w-4xl mx-auto space-y-8">
+                    <!-- 標頭 -->
+                    <div class="text-center pb-6 border-b border-slate-200 dark:border-slate-700">
+                        <span class="text-xs uppercase tracking-widest text-teal-600 dark:text-teal-400 font-bold">校規公報法規存檔</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold font-serif text-slate-900 dark:text-white mt-1">南投縣立南投國中獎懲要點暨改過銷過辦法</h2>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">中華民國 114 年 1 月 20 日校務會議通過</p>
+                    </div>
+
+                    <!-- 條文 -->
+                    <div class="space-y-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        <!-- 第一條 -->
+                        <section class="space-y-2">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第一條</h3>
+                            <p class="indent-6">本辦法依國民教育法第四十四條及南投縣國民小學及國民中學學生獎懲辦法訂定之。</p>
+                        </section>
+
+                        <!-- 第二條 -->
+                        <section class="space-y-3">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第二條</h3>
+                            <p class="indent-6">國民小學及國民中學所為書面獎勵，包括嘉獎、小功及大功獎勵措施，具體內容如下：</p>
+                            
+                            <div class="pl-4 space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-1.5">(一) 嘉獎：</h4>
+                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                        <li>服裝儀容經常整潔，合於規定，足為同學模範者。</li>
+                                        <li>禮節周到足為同學模範者。</li>
+                                        <li>參加團體活動積極熱心表現優異者。</li>
+                                        <li>拾物不昧，其價值較小者。</li>
+                                        <li>與同學互助合作有具體表現優良者。</li>
+                                        <li>愛護公物有具體行為者。</li>
+                                        <li>領導同學為團體服務者。</li>
+                                        <li>值勤表現優良者。</li>
+                                        <li>經常主動為公服務。</li>
+                                        <li>運動比賽時表現體育道德有具體事實者。</li>
+                                        <li>於校內各類刊物發表優良作品者。</li>
+                                        <li>其他優良行為適合記嘉獎者。</li>
+                                    </ol>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-teal-700 dark:text-teal-400 mb-1.5">(二) 小功：</h4>
+                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                        <li>行為誠正，足以表現校風，有具體事實者。</li>
+                                        <li>維護公物，使團體利益不受損害者。</li>
+                                        <li>熱心愛國愛校運動，確有特殊成績表現者。</li>
+                                        <li>見義勇為能保全團體或同學利益，確有具體事實者。</li>
+                                        <li>熱心公益活動能增進校譽，有具體事實者。</li>
+                                        <li>敬老扶幼有顯著之事實表現者。</li>
+                                        <li>檢舉弊害經查明屬實者。</li>
+                                        <li>拾物不昧價值貴重。</li>
+                                        <li>被選為各級幹部負責盡職表現優良者。</li>
+                                        <li>執勤服務表現優良者。</li>
+                                        <li>代表學校參加校外活動，增進校譽確有具體事實者。</li>
+                                        <li>於校外優良刊物發表作品者。</li>
+                                        <li>其他優良行為適合記小功者。</li>
+                                    </ol>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-blue-700 dark:text-blue-400 mb-1.5">(三) 大功：</h4>
+                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                        <li>提供優良建議，並能率先力行，增進校譽者。</li>
+                                        <li>愛護學校或同學，確有特殊事實表現，因而增進校譽者。</li>
+                                        <li>檢舉重大弊害，經查明屬實者。</li>
+                                        <li>拾物不昧，其價值特別貴重者。</li>
+                                        <li>參加各種服務，成績特優者。</li>
+                                        <li>代表學校參加對外比賽，成績特優者。</li>
+                                        <li>其他優良行為適合記大功者。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 第三條 -->
+                        <section class="space-y-3">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第三條</h3>
+                            <p class="indent-6">國民中學所為書面懲處措施，包括警告、小過、大過措施，具體內容如下：</p>
+
+                            <div class="pl-4 space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-amber-700 dark:text-amber-400 mb-1.5">(一) 警告：</h4>
+                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                        <li>違反上課規定，影響教學秩序或他人學習，經教師採取一般管教措施仍未改善者。</li>
+                                        <li>不服從師長或糾察隊或幹部因執行公務之糾正者，情節輕微者。</li>
+                                        <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節輕微者。</li>
+                                        <li>值勤不盡職，影響他人權益或工作之推動者。</li>
+                                        <li>參加公眾或團體活動等，影響活動秩序、進行或他人權益，情節輕微者。</li>
+                                        <li>拾物不送招領，據為己有，情節輕微者。</li>
+                                        <li>偷閱他人日記或信件者。</li>
+                                        <li>在公共場所高聲喧嚷影響秩序者。</li>
+                                        <li>損害公物不主動報告者。</li>
+                                        <li>亂丟垃圾或其他破壞環境衛生行為，經勸導仍未改正常。</li>
+                                        <li>對師長詢問事件以不誠實之謊言誤導，致事件未能妥善處理或於人員、財物受到傷害、損害及違法違規行為發生前阻卻，情節輕微者。</li>
+                                        <li>未經同意使用他人智慧財產權。</li>
+                                        <li>不遵守道路交通安全規則，情節輕微者。</li>
+                                        <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，情節輕微者。</li>
+                                        <li>故意毀損公物，情節輕微者。</li>
+                                        <li>違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節輕微者。</li>
+                                    </ol>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-orange-700 dark:text-orange-400 mb-1.5">(二) 小過：</h4>
+                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                        <li>蓄意違反集會秩序，影響他人權益或集會之進行者。</li>
+                                        <li>違反試場規則，情節輕微者。</li>
+                                        <li>攜帶、觀看、傳閱不正當之書刊、圖片或影片者。</li>
+                                        <li>冒用或偽造家長文書印章者。</li>
+                                        <li>塗改點名單、請假單、成績單或其他資料者。</li>
+                                        <li>不假離校外出者。</li>
+                                        <li>拾物不送招領，據為己有，情節嚴重者。</li>
+                                        <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，經糾正不聽者。</li>
+                                        <li>偷竊行為，情節輕微者。</li>
+                                        <li>不服從師長或糾察隊或幹部因執行公務之糾正，情節嚴重者。</li>
+                                        <li>擔任班級幹部不負責盡職，影響工作推展者。</li>
+                                        <li>不遵守道路交通安全規則，經糾正不聽或情節嚴重者。</li>
+                                        <li>飲酒、抽煙、嚼檳榔者。</li>
+                                        <li>賭博行為，情節輕微者。</li>
+                                        <li>出入禁止未滿十八歲進入之場所者。</li>
+                                        <li>毆打同學，情節輕微者。</li>
+                                        <li>經學校性別平等教育委員會審議認定有性騷擾或性霸凌行為，情節輕微者。</li>
+                                        <li>經學校校園霸凌防制委員會調查確認有霸凌行為，情節輕微者。</li>
+                                        <li>參加公眾或團體活動等，影響活動秩序、進行或他人權益，經勸導仍不改正者。</li>
+                                        <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，屢勸仍再犯且情節尚未重大者。</li>
+                                        <li>故意毀損公物，屢勸仍再犯且情節尚未重大者。</li>
+                                        <li>違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節嚴重者。</li>
+                                    </ol>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-rose-700 dark:text-rose-400 mb-1.5">(三) 大過：</h4>
+                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                        <li>樹立幫派或參加不良組織。</li>
+                                        <li>集體械鬥情節重大者。</li>
+                                        <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節嚴重者。</li>
+                                        <li>違反試場規則，情節嚴重者。</li>
+                                        <li>竊盜行為情節重大者。</li>
+                                        <li>勒索威脅者。</li>
+                                        <li>蓄意規避公共服務，經勸導無效，並有意影響煽動他人，嚴重影響公共事務之推動者。</li>
+                                        <li>酗酒、吸食或注射違禁藥品。</li>
+                                        <li>賭博行為，情節嚴重者。</li>
+                                        <li>寄宿生不假外出者。</li>
+                                        <li>校內、外言行涉及各校學生獎懲規定或違反公共秩序，經民眾陳情、相關機關通報或引起社會輿情，情節重大者。</li>
+                                        <li>未經同意使用他人智慧財產權營利，如販賣。</li>
+                                        <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，涉及公共安全且情節重大者。</li>
+                                        <li>故意毀損公物，情節嚴重者。</li>
+                                        <li>聚集校外人士到校滋事者。</li>
+                                        <li>收留逃學、逃家同學而故意隱藏不報者。</li>
+                                        <li>經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌為情節重大者。</li>
+                                        <li>經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 第四條 -->
+                        <section class="space-y-2">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第四條</h3>
+                            <p class="indent-6">改過銷過之申請得由學校有關人員或受懲罰之學生向學務處領取表格，填妥資料由導師簽註具體事實，小過以下之處分由學務主任核定，大過以上之處分提學生獎懲委員會討論議決，由校長核定，並依下列原則辦理：</p>
+                            <div class="pl-6 space-y-1 text-xs sm:text-sm">
+                                <p>(一) 經考察確有改過自新者。</p>
+                                <p>(二) 申請改過、銷過於下列考察時段期滿後為之：</p>
+                                <p class="pl-4">1. 警告：三週以上。</p>
+                                <p class="pl-4">2. 小過：六週以上。</p>
+                                <p class="pl-4">3. 大過：九週以上。</p>
+                            </div>
+                            <p class="indent-6 mt-2">前項申請於三年級下學期公佈之懲罰不適用之；經銷過之行為，於同一學年內再犯者，亦同。轉學生於學籍轉入三個月後表現良好，經由學生向導師或學務處申請認可後，方得進行銷過事宜。</p>
+                        </section>
+
+                        <!-- 第五條 -->
+                        <section class="space-y-2">
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第五條</h3>
+                            <p class="indent-6">本要點經校務會議通過後公告實施。</p>
+                        </section>
+                    </div>
+
+                    <!-- 簽署欄 (如原件核印) -->
+                    <div class="pt-8 border-t border-slate-200 dark:border-slate-700">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                            <div class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-600">
+                                <div class="text-xs font-semibold text-slate-400 mb-1">提案人</div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base">許子銓</div>
+                                <div class="text-xs text-slate-500">代理教師兼生教組長</div>
+                            </div>
+                            <div class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-600">
+                                <div class="text-xs font-semibold text-slate-400 mb-1">學務主任</div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base">董勳達</div>
+                                <div class="text-xs text-slate-500">教師兼學務主任</div>
+                            </div>
+                            <div class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-600">
+                                <div class="text-xs font-semibold text-slate-400 mb-1">校長</div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base">劉松彥</div>
+                                <div class="text-xs text-slate-500">南投國中校長</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- 頁尾 -->
+        <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-400 space-y-1">
+            <p>南投縣立南投國中 學生獎懲要點暨改過銷過辦法 數位查詢系統</p>
+            <p>校址：540 南投市民族路328號 ｜ 系統支援：學務處生活教育組</p>
+        </footer>
+    </div>
+
+    <!-- 條文複製提示 Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-300 bg-slate-800 text-white text-xs px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span id="toast-text">條文內容已複製至剪貼簿</span>
+    </div>
+
+    <!-- 資料腳本與邏輯 -->
+    <script>
+        // 資料集定義
+        const RULES_DATA = [
+            // 嘉獎 (12)
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第1款', tag: '儀容常規', text: '服裝儀容經常整潔，合於規定，足為同學模範者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第2款', tag: '禮節模範', text: '禮節周到足為同學模範者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第3款', tag: '團體活動', text: '參加團體活動積極熱心表現優異者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第4款', tag: '拾金不昧', text: '拾物不昧，其價值較小者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第5款', tag: '互助友愛', text: '與同學互助合作有具體表現優良者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第6款', tag: '公物環境', text: '愛護公物有具體行為者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第7款', tag: '服務奉獻', text: '領導同學為團體服務者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第8款', tag: '服務奉獻', text: '值勤表現優良者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第9款', tag: '服務奉獻', text: '經常主動為公服務。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第10款', tag: '競賽活動', text: '運動比賽時表現體育道德有具體事實者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第11款', tag: '藝文競賽', text: '於校內各類刊物發表優良作品者。' },
+            { type: 'reward', level: '嘉獎', article: '第二條第(一)項第12款', tag: '其他優良', text: '其他優良行為適合記嘉獎者。' },
+
+            // 小功 (13)
+            { type: 'reward', level: '小功', article: '第二條第(二)項第1款', tag: '品德誠信', text: '行為誠正，足以表現校風，有具體事實者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第2款', tag: '公物環境', text: '維護公物，使團體利益不受損害者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第3款', tag: '競賽活動', text: '熱心愛國愛校運動，確有特殊成績表現者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第4款', tag: '見義勇為', text: '見義勇為能保全團體或同學利益，確有具體事實者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第5款', tag: '服務奉獻', text: '熱心公益活動能增進校譽，有具體事實者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第6款', tag: '互助友愛', text: '敬老扶幼有顯著之事實表現者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第7款', tag: '正義檢舉', text: '檢舉弊害經查明屬實者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第8款', tag: '拾金不昧', text: '拾物不昧價值貴重。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第9款', tag: '幹部盡職', text: '被選為各級幹部負責盡職表現優良者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第10款', tag: '服務奉獻', text: '執勤服務表現優良者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第11款', tag: '競賽活動', text: '代表學校參加校外活動，增進校譽確有具體事實者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第12款', tag: '藝文競賽', text: '於校外優良刊物發表作品者。' },
+            { type: 'reward', level: '小功', article: '第二條第(二)項第13款', tag: '其他優良', text: '其他優良行為適合記小功者。' },
+
+            // 大功 (7)
+            { type: 'reward', level: '大功', article: '第二條第(三)項第1款', tag: '服務奉獻', text: '提供優良建議，並能率先力行，增進校譽者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第2款', tag: '愛校榮譽', text: '愛護學校或同學，確有特殊事實表現，因而增進校譽者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第3款', tag: '正義檢舉', text: '檢舉重大弊害，經查明屬實者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第4款', tag: '拾金不昧', text: '拾物不昧，其價值特別貴重者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第5款', tag: '服務奉獻', text: '參加各種服務，成績特優者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第6款', tag: '競賽活動', text: '代表學校參加對外比賽，成績特優者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第7款', tag: '其他優良', text: '其他優良行為適合記大功者。' },
+
+            // 警告 (16)
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第1款', tag: '常規秩序', text: '違反上課規定，影響教學秩序或他人學習，經教師採取一般管教措施仍未改善者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第2款', tag: '常規秩序', text: '不服從師長或糾察隊或幹部因執行公務之糾正者，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第3款', tag: '言行法紀', text: '言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第4款', tag: '服務奉獻', text: '值勤不盡職，影響他人權益或工作之推動者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第5款', tag: '常規秩序', text: '參加公眾或團體活動等，影響活動秩序、進行或他人權益，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第6款', tag: '拾金不昧', text: '拾物不送招領，據為己有，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第7款', tag: '隱私保護', text: '偷閱他人日記或信件者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第8款', tag: '常規秩序', text: '在公共場所高聲喧嚷影響秩序者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第9款', tag: '公物環境', text: '損害公物不主動報告者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第10款', tag: '公物環境', text: '亂丟垃圾或其他破壞環境衛生行為，經勸導仍未改正常。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第11款', tag: '言行法紀', text: '對師長詢問事件以不誠實之謊言誤導，致事件未能妥善處理或於人員、財物受到傷害、損害及違法違規行為發生前阻卻，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第12款', tag: '智慧財產', text: '未經同意使用他人智慧財產權。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第13款', tag: '交通安全', text: '不遵守道路交通安全規則，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第14款', tag: '違禁物品', text: '攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第15款', tag: '公物環境', text: '故意毀損公物，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第16款', tag: '行動載具', text: '違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節輕微者。' },
+
+            // 小過 (22)
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第1款', tag: '常規秩序', text: '蓄意違反集會秩序，影響他人權益或集會之進行者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第2款', tag: '考場規則', text: '違反試場規則，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第3款', tag: '違禁物品', text: '攜帶、觀看、傳閱不正當之書刊、圖片或影片者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第4款', tag: '偽造文書', text: '冒用或偽造家長文書印章者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第5款', tag: '偽造文書', text: '塗改點名單、請假單、成績單或其他資料者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第6款', tag: '出缺常規', text: '不假離校外出者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第7款', tag: '拾金不昧', text: '拾物不送招領，據為己有，情節嚴重者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第8款', tag: '言行法紀', text: '言行涉及公然侮辱、誹謗或恐嚇等法律責任，經糾正不聽者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第9款', tag: '侵占竊盜', text: '偷竊行為，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第10款', tag: '常規秩序', text: '不服從師長或糾察隊或幹部因執行公務之糾正，情節嚴重者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第11款', tag: '幹部盡職', text: '擔任班級幹部不負責盡職，影響工作推展者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第12款', tag: '交通安全', text: '不遵守道路交通安全規則，經糾正不聽或情節嚴重者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第13款', tag: '菸害酒害', text: '飲酒、抽煙、嚼檳榔者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第14款', tag: '賭博不良', text: '賭博行為，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第15款', tag: '不良場所', text: '出入禁止未滿十八歲進入之場所者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第16款', tag: '校園暴力', text: '毆打同學，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性騷擾或性霸凌行為，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第19款', tag: '常規秩序', text: '參加公眾或團體活動等，影響活動秩序、進行或他人權益，經勸導仍不改正者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第20款', tag: '違禁物品', text: '攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，屢勸仍再犯且情節尚未重大者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第21款', tag: '公物環境', text: '故意毀損公物，屢勸仍再犯且情節尚未重大者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第22款', tag: '行動載具', text: '違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節嚴重者。' },
+
+            // 大過 (18)
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第1款', tag: '不良幫派', text: '樹立幫派或參加不良組織。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第2款', tag: '校園暴力', text: '集體械鬥情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第3款', tag: '言行法紀', text: '言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節嚴重者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第4款', tag: '考場規則', text: '違反試場規則，情節嚴重者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第5款', tag: '侵占竊盜', text: '竊盜行為情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第6款', tag: '校園暴力', text: '勒索威脅者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第7款', tag: '服務奉獻', text: '蓄意規避公共服務，經勸導無效，並有意影響煽動他人，嚴重影響公共事務之推動者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第8款', tag: '毒品管制', text: '酗酒、吸食或注射違禁藥品。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第9款', tag: '賭博不良', text: '賭博行為，情節嚴重者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第10款', tag: '出缺常規', text: '寄宿生不假外出者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第11款', tag: '社會秩序', text: '校內、外言行涉及各校學生獎懲規定或違反公共秩序，經民眾陳情、相關機關通報或引起社會輿情，情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第12款', tag: '智慧財產', text: '未經同意使用他人智慧財產權營利，如販賣。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第13款', tag: '違禁物品', text: '攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，涉及公共安全且情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第14款', tag: '公物環境', text: '故意毀損公物，情節嚴重者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第15款', tag: '校園安全', text: '聚集校外人士到校滋事者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第16款', tag: '通報責任', text: '收留逃學、逃家同學而故意隱藏不報者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌為情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。' }
+        ];
+
+        // 狀態管理
+        let currentMainType = 'all'; // all, reward, penalty
+        let currentLevel = 'all'; // all, 嘉獎, 小功, 大功, 警告, 小過, 大過
+        let currentTag = '';
+        let currentKeyword = '';
+
+        // 密碼驗證
+        function checkInitAuth() {
+            if (sessionStorage.getItem('ntjh_auth') === '049_verified') {
+                showApp();
+            } else {
+                document.getElementById('auth-modal').classList.remove('hidden');
+                document.getElementById('app-container').classList.add('hidden');
+                setTimeout(() => document.getElementById('auth-input').focus(), 150);
+            }
+        }
+
+        function handleAuth(e) {
+            e.preventDefault();
+            const input = document.getElementById('auth-input');
+            const pwd = input.value.trim();
+            const err = document.getElementById('auth-error');
+            const card = document.getElementById('auth-card');
+
+            if (pwd === '049') {
+                sessionStorage.setItem('ntjh_auth', '049_verified');
+                err.classList.add('hidden');
+                showApp();
+            } else {
+                err.classList.remove('hidden');
+                card.classList.add('shake');
+                input.value = '';
+                input.focus();
+                setTimeout(() => card.classList.remove('shake'), 400);
+            }
+        }
+
+        function showApp() {
+            document.getElementById('auth-modal').classList.add('hidden');
+            document.getElementById('app-container').classList.remove('hidden');
+            initCalculator();
+            renderCards();
+        }
+
+        function lockSystem() {
+            sessionStorage.removeItem('ntjh_auth');
+            location.reload();
+        }
+
+        // 標籤頁切換
+        function switchTab(tabId) {
+            ['query', 'clearance', 'fulltext'].forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (t === tabId) {
+                    el.classList.remove('hidden');
+                    btn.className = 'py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2 font-bold';
+                } else {
+                    el.classList.add('hidden');
+                    btn.className = 'py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2';
+                }
+            });
+        }
+
+        // 篩選與渲染
+        function setMainType(type) {
+            currentMainType = type;
+            currentLevel = 'all';
+            updatePillsUI();
+            applyFilters();
+        }
+
+        function setLevel(lvl) {
+            currentLevel = lvl;
+            if (lvl === '嘉獎' || lvl === '小功' || lvl === '大功') {
+                currentMainType = 'reward';
+            } else if (lvl === '警告' || lvl === '小過' || lvl === '大過') {
+                currentMainType = 'penalty';
+            }
+            updatePillsUI();
+            applyFilters();
+        }
+
+        function filterByTag(tag) {
+            currentTag = tag;
+            updatePillsUI();
+            applyFilters();
+        }
+
+        function clearSearch() {
+            const el = document.getElementById('search-input');
+            el.value = '';
+            document.getElementById('clear-search').classList.add('hidden');
+            currentKeyword = '';
+            applyFilters();
+        }
+
+        function resetAllFilters() {
+            currentMainType = 'all';
+            currentLevel = 'all';
+            currentTag = '';
+            currentKeyword = '';
+            document.getElementById('search-input').value = '';
+            document.getElementById('clear-search').classList.add('hidden');
+            updatePillsUI();
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const inputVal = document.getElementById('search-input').value.trim();
+            currentKeyword = inputVal;
+            const clearBtn = document.getElementById('clear-search');
+            if (inputVal) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            renderCards();
+        }
+
+        function updatePillsUI() {
+            // Main type pills
+            ['all', 'reward', 'penalty'].forEach(t => {
+                const btn = document.getElementById(`type-btn-${t}`);
+                if (btn) {
+                    if (currentMainType === t) {
+                        btn.className = 'type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-teal-600 text-white shadow-sm';
+                    } else {
+                        btn.className = 'type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200';
+                    }
+                }
+            });
+
+            // Level pills
+            ['all', '嘉獎', '小功', '大功', '警告', '小過', '大過'].forEach(lvl => {
+                const btn = document.getElementById(`level-btn-${lvl}`);
+                if (btn) {
+                    if (currentLevel === lvl) {
+                        btn.classList.add('ring-2', 'ring-teal-500', 'font-bold');
+                    } else {
+                        btn.classList.remove('ring-2', 'ring-teal-500', 'font-bold');
+                    }
+                }
+            });
+        }
+
+        function highlightMatch(text, keyword) {
+            if (!keyword) return text;
+            const regex = new RegExp(`(${keyword.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function renderCards() {
+            const container = document.getElementById('cards-container');
+            const noResults = document.getElementById('no-results');
+            const countEl = document.getElementById('results-count');
+
+            const filtered = RULES_DATA.filter(item => {
+                // Type match
+                if (currentMainType !== 'all' && item.type !== currentMainType) return false;
+                // Level match
+                if (currentLevel !== 'all' && item.level !== currentLevel) return false;
+                // Tag match
+                if (currentTag && item.tag !== currentTag) return false;
+                // Keyword match
+                if (currentKeyword) {
+                    const q = currentKeyword.toLowerCase();
+                    const textMatch = item.text.toLowerCase().includes(q);
+                    const tagMatch = item.tag.toLowerCase().includes(q);
+                    const articleMatch = item.article.toLowerCase().includes(q);
+                    const levelMatch = item.level.toLowerCase().includes(q);
+                    if (!textMatch && !tagMatch && !articleMatch && !levelMatch) return false;
+                }
+                return true;
+            });
+
+            countEl.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            const levelBadges = {
+                '嘉獎': 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-300/60',
+                '小功': 'bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border-teal-300/60',
+                '大功': 'bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border-blue-300/60',
+                '警告': 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-300/60',
+                '小過': 'bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-300 border-orange-300/60',
+                '大過': 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border-rose-300/60',
+            };
+
+            const levelIconDots = {
+                '嘉獎': 'bg-emerald-500',
+                '小功': 'bg-teal-500',
+                '大功': 'bg-blue-500',
+                '警告': 'bg-amber-500',
+                '小過': 'bg-orange-500',
+                '大過': 'bg-rose-500',
+            };
+
+            container.innerHTML = filtered.map((item, idx) => {
+                const badgeClass = levelBadges[item.level] || 'bg-slate-100 text-slate-700';
+                const dotClass = levelIconDots[item.level] || 'bg-slate-400';
+                const highlightedText = highlightMatch(item.text, currentKeyword);
+                const highlightedArticle = highlightMatch(item.article, currentKeyword);
+
+                return `
+                <div onclick="copyText('${item.article}【${item.level}】${item.text.replace(/'/g, "\\'")}')" 
+                    class="group relative bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200/80 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-400 shadow-sm hover:shadow-md transition cursor-pointer flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full ${dotClass}"></span>
+                                <span class="px-2 py-0.5 rounded-md text-xs font-bold border ${badgeClass}">${item.level}</span>
+                                <span class="text-xs text-slate-400 font-mono">${highlightedArticle}</span>
+                            </div>
+                            <span class="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/80 text-slate-600 dark:text-slate-300 font-medium">#${item.tag}</span>
+                        </div>
+                        <p class="text-sm font-medium text-slate-800 dark:text-slate-100 leading-relaxed group-hover:text-teal-700 dark:group-hover:text-teal-300 transition">
+                            ${highlightedText}
+                        </p>
+                    </div>
+
+                    <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>${item.type === 'reward' ? '🌟 獎勵要點' : '⚠️ 懲處要點'}</span>
+                        <span class="flex items-center gap-1 group-hover:text-teal-600 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            點擊複製
+                        </span>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // 複製文字通知
+        function copyText(str) {
+            navigator.clipboard.writeText(str).then(() => {
+                showToast(`已複製：${str.substring(0, 20)}...`);
+            }).catch(() => {
+                showToast('已選取條文');
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-12', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-12', 'pointer-events-none');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 2500);
+        }
+
+        // 銷過試算機邏輯
+        function initCalculator() {
+            const dateInput = document.getElementById('calc-date');
+            if (dateInput && !dateInput.value) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+                runCalculator();
+            }
+        }
+
+        function runCalculator() {
+            const weeks = parseInt(document.getElementById('calc-level').value, 10);
+            const dateStr = document.getElementById('calc-date').value;
+            const resultEl = document.getElementById('calc-result-date');
+            const countdownEl = document.getElementById('calc-countdown');
+
+            if (!dateStr) {
+                resultEl.textContent = '請選擇日期';
+                countdownEl.textContent = '';
+                return;
+            }
+
+            const baseDate = new Date(dateStr);
+            const targetDate = new Date(baseDate.getTime() + (weeks * 7 * 24 * 60 * 60 * 1000));
+            
+            const y = targetDate.getFullYear();
+            const m = String(targetDate.getMonth() + 1).padStart(2, '0');
+            const d = String(targetDate.getDate()).padStart(2, '0');
+            const rocY = y - 1911;
+
+            resultEl.textContent = `${rocY} 年 ${m} 月 ${d} 日（西元 ${y}-${m}-${d}）`;
+
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            const diffDays = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
+
+            if (diffDays <= 0) {
+                countdownEl.innerHTML = `<span class="text-emerald-600 font-bold font-sans">✓ 已屆滿 ${weeks} 週考察期</span>，可備齊佐證向導師提出銷過申請！`;
+            } else {
+                countdownEl.innerHTML = `距離考察期滿尚有 <strong class="text-amber-600 font-sans">${diffDays}</strong> 天。期間請落實改過自新。`;
+            }
+        }
+
+        // 深色模式切換
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcons(isDark);
+        }
+
+        function updateThemeIcons(isDark) {
+            document.getElementById('theme-icon-dark').classList.toggle('hidden', !isDark);
+            document.getElementById('theme-icon-light').classList.toggle('hidden', isDark);
+        }
+
+        // 頁面初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            }
+            updateThemeIcons(isDark);
+
+            checkInitAuth();
+        });
+    </script>
+</body>
+</html>
