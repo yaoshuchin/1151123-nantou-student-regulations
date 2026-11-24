@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>南投縣立南投國中 學生獎懲要點暨改過銷過辦法 互動查詢系統</title>
+    <title>南投縣立南投國民中學 學生獎懲規定暨獎懲要點 互動查詢系統</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -67,10 +67,10 @@
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
 
-    <!-- 主應用介面（已取消密碼驗證，直接開啟） -->
+    <!-- 主應用介面 -->
     <div id="app-container" class="min-h-screen flex flex-col">
         <!-- 頂部導航 -->
-        <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center gap-3">
@@ -80,19 +80,38 @@
                             </svg>
                         </span>
                         <div>
-                            <h1 class="text-base sm:text-lg font-bold leading-tight">南投國中 學生獎懲要點查詢系統</h1>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">114年1月20日校務會議通過版本 ｜ 支援全文檢索</p>
+                            <div class="flex items-center gap-2">
+                                <h1 class="text-base sm:text-lg font-bold leading-tight">南投國中 學生獎懲規定與要點系統</h1>
+                                <span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300 rounded-full border border-amber-200">1151029修正版</span>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">教育部最新準則全面合規 ｜ 獎懲規定28點 ＋ 具體要點5條88款 ＋ 改過銷過辦法</p>
                         </div>
                     </div>
 
                     <!-- 右側功能鈕 -->
                     <div class="flex items-center gap-2 sm:gap-3">
-                        <a href="南投縣立南投國中獎懲要點暨改過銷過辦法.docx" download class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition border border-slate-200 dark:border-slate-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                            </svg>
-                            下載 Word 檔
-                        </a>
+                        <div class="relative group">
+                            <button class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-teal-800 dark:text-teal-200 bg-teal-50 dark:bg-teal-950/50 hover:bg-teal-100 rounded-lg transition border border-teal-200/60">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                下載法規 Word
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="absolute right-0 mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1 hidden group-hover:block z-50 text-xs">
+                                <a href="南投縣立南投國民中學學生獎懲規定(1151029修正).docx" download class="block px-3 py-2 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700">
+                                    <div class="font-bold">📄 最新版 Word 正式公文檔</div>
+                                    <div class="text-[10px] text-slate-400">1151029修正（含規定28點與要點全文）</div>
+                                </a>
+                                <a href="南投縣立南投國中獎懲要點暨改過銷過辦法.docx" download class="block px-3 py-2 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 border-t border-slate-100 dark:border-slate-700/60">
+                                    <div class="font-bold">📄 獎懲要點原核定版 Word</div>
+                                    <div class="text-[10px] text-slate-400">1140120校務會議通過版本</div>
+                                </a>
+                            </div>
+                        </div>
+
                         <!-- 切換深淺模式 -->
                         <button onclick="toggleDarkMode()" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition" title="切換外觀風格">
                             <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
@@ -106,22 +125,28 @@
                 </div>
 
                 <!-- 分頁按鈕 -->
-                <div class="flex border-t border-slate-200/60 dark:border-slate-800 -mb-px space-x-6 text-sm font-medium">
-                    <button onclick="switchTab('query')" id="tab-btn-query" class="py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2 font-bold">
+                <div class="flex border-t border-slate-200/60 dark:border-slate-800 -mb-px space-x-4 sm:space-x-8 text-sm font-medium overflow-x-auto">
+                    <button onclick="switchTab('query')" id="tab-btn-query" class="py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2 font-bold whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
-                        <span>分類與條文查詢</span>
+                        <span>獎懲裁量卡片檢索</span>
                     </button>
-                    <button onclick="switchTab('clearance')" id="tab-btn-clearance" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2">
+                    <button onclick="switchTab('rules28')" id="tab-btn-rules28" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>學生獎懲規定（總則28點）</span>
+                    </button>
+                    <button onclick="switchTab('clearance')" id="tab-btn-clearance" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        <span>改過銷過要點與試算</span>
+                        <span>改過銷過試算與SOP</span>
                     </button>
-                    <button onclick="switchTab('fulltext')" id="tab-btn-fulltext" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2">
+                    <button onclick="switchTab('fulltext')" id="tab-btn-fulltext" class="py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                         <span>法規全文檢索與閱覽</span>
                     </button>
@@ -132,7 +157,7 @@
         <!-- 主體內容 -->
         <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-            <!-- TAB 1: 分類查詢 -->
+            <!-- TAB 1: 獎懲裁量卡片檢索 -->
             <div id="tab-query" class="space-y-6">
                 <!-- 搜尋與篩選列 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-700 space-y-4">
@@ -151,7 +176,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
                             </div>
-                            <input type="text" id="search-input" oninput="applyFilters()" placeholder="輸入關鍵字進行全文檢索，例如：三年級、轉學生、拾金不昧、行動載具、抽煙、毀損公物、服裝儀容、銷過、國民教育法..."
+                            <input type="text" id="search-input" oninput="applyFilters()" placeholder="輸入關鍵字進行全文檢索，例如：站立反省、服裝儀容、情感交往、出缺席、拾金不昧、行動載具、抽煙、毀損公物、銷過..."
                                 class="w-full pl-11 pr-24 py-3 bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white dark:focus:bg-slate-700 transition">
                             <div class="absolute inset-y-0 right-0 pr-2 flex items-center gap-1">
                                 <button id="clear-search" onclick="clearSearch()" class="hidden p-1 text-slate-400 hover:text-slate-600">
@@ -169,14 +194,14 @@
                     <!-- 獎懲主類別選單 (Tabs) -->
                     <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-700/60">
                         <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">類型：</span>
-                        <button onclick="setMainType('all')" id="type-btn-all" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-teal-600 text-white shadow-sm">全部條文 (95)</button>
+                        <button onclick="setMainType('all')" id="type-btn-all" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-teal-600 text-white shadow-sm">全部條文 (122)</button>
+                        <button onclick="setMainType('rule')" id="type-btn-rule" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 hover:text-indigo-700">獎懲規定總則 (28)</button>
                         <button onclick="setMainType('reward')" id="type-btn-reward" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 hover:text-emerald-700">獎勵措施 (33)</button>
                         <button onclick="setMainType('penalty')" id="type-btn-penalty" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-700">懲處措施 (57)</button>
                         <button onclick="setMainType('clearance')" id="type-btn-clearance" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-purple-100 dark:hover:bg-purple-900/30 hover:text-purple-700">改過銷過章則 (3)</button>
-                        <button onclick="setMainType('general')" id="type-btn-general" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700">總則與簽署 (2)</button>
                     </div>
 
-                    <!-- 子層級（嘉獎/小功/大功/警告/小過/大過）篩選按鈕 -->
+                    <!-- 子層級篩選按鈕 -->
                     <div class="flex flex-wrap items-center gap-1.5 text-xs">
                         <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">等級：</span>
                         <button onclick="setLevel('all')" id="level-btn-all" class="level-pill px-2.5 py-1 rounded-md font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 ring-2 ring-teal-500 font-bold">不限</button>
@@ -193,23 +218,24 @@
                     <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs text-slate-500">
                         <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">情境：</span>
                         <button onclick="filterByTag('')" id="tag-btn-all" class="tag-pill px-2 py-0.5 rounded text-teal-600 dark:text-teal-400 font-medium underline">全部主題</button>
-                        <button onclick="filterByTag('公物環境')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">公物環境</button>
-                        <button onclick="filterByTag('常規秩序')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">常規秩序</button>
-                        <button onclick="filterByTag('拾金不昧')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">拾物招領</button>
-                        <button onclick="filterByTag('言行法紀')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">言行侮辱/恐嚇</button>
-                        <button onclick="filterByTag('行動載具')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">校園行動載具</button>
-                        <button onclick="filterByTag('違禁物品')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">攜帶違法違禁品</button>
-                        <button onclick="filterByTag('校園暴力')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">暴力/鬥毆/勒索</button>
-                        <button onclick="filterByTag('性平與霸凌')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">性騷擾/霸凌認定</button>
-                        <button onclick="filterByTag('競賽活動')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">競賽優異/出賽</button>
-                        <button onclick="filterByTag('銷過規範')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">銷過程序與時限</button>
+                        <button onclick="filterByTag('禁止懲處')" class="tag-pill px-2 py-0.5 rounded bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 font-bold border border-rose-200/60">🚫三大禁止懲處原則</button>
+                        <button onclick="filterByTag('一般管教')" class="tag-pill px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-300 font-semibold border border-indigo-200/60">👨‍🏫教師16項管教</button>
+                        <button onclick="filterByTag('獎懲委員會')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">獎懲會正當程序</button>
+                        <button onclick="filterByTag('公物環境')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">公物環境</button>
+                        <button onclick="filterByTag('常規秩序')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">常規秩序</button>
+                        <button onclick="filterByTag('拾金不昧')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">拾物招領</button>
+                        <button onclick="filterByTag('言行法紀')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">言行侮辱/恐嚇</button>
+                        <button onclick="filterByTag('行動載具')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">校園行動載具</button>
+                        <button onclick="filterByTag('違禁物品')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">違法違禁物品</button>
+                        <button onclick="filterByTag('性平與霸凌')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">性平與防制霸凌</button>
+                        <button onclick="filterByTag('銷過規範')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50">銷過程序與時限</button>
                     </div>
                 </div>
 
                 <!-- 搜尋結果統計與排序 -->
                 <div class="flex items-center justify-between text-xs text-slate-500 px-1">
                     <div>
-                        符合條件項目：<span id="results-count" class="font-bold text-teal-600 dark:text-teal-400">95</span> 筆
+                        符合條件項目：<span id="results-count" class="font-bold text-teal-600 dark:text-teal-400">122</span> 筆
                     </div>
                     <div class="flex items-center gap-2">
                         <span>點擊任一卡片可直接複製條文內容</span>
@@ -226,13 +252,71 @@
                     <svg class="mx-auto h-12 w-12 text-slate-300 dark:text-slate-600 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <p class="text-base font-semibold text-slate-600 dark:text-slate-300">查無符合條件的獎懲要點條文</p>
+                    <p class="text-base font-semibold text-slate-600 dark:text-slate-300">查無符合條件的獎懲規定或條文</p>
                     <p class="text-xs text-slate-400 mt-1">請嘗試減少或更換搜尋關鍵字，或重設篩選條件</p>
                     <button onclick="resetAllFilters()" class="mt-4 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold rounded-lg transition">重設所有篩選</button>
                 </div>
             </div>
 
-            <!-- TAB 2: 改過銷過要點與試算 -->
+            <!-- TAB 2: 學生獎懲規定（總則28點與正當程序） -->
+            <div id="tab-rules28" class="hidden space-y-6">
+                <!-- 重點視覺圖卡 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- 三大禁止懲處原則 -->
+                    <div class="p-5 bg-rose-50/80 dark:bg-rose-950/30 rounded-2xl border border-rose-200 dark:border-rose-900/60 shadow-sm space-y-2">
+                        <div class="flex items-center gap-2 text-rose-700 dark:text-rose-400 font-bold text-sm">
+                            <span class="p-1 bg-rose-200 dark:bg-rose-900 rounded-lg">🚫</span>
+                            <h3>三大禁止懲處原則（教育部紅線）</h3>
+                        </div>
+                        <ul class="text-xs text-rose-800 dark:text-rose-300 space-y-1.5 list-disc pl-4 pt-1">
+                            <li><strong>第十點：服裝儀容</strong>違規不得懲處（僅能採正向管教、自省、靜坐反省）。</li>
+                            <li><strong>第十一點：情感交往</strong>不得作為懲處要件（嚴禁以曖昧、不檢等籠統概念處分）。</li>
+                            <li><strong>第十二點：授課日出缺勤</strong>不得懲處（採輔導管教為之）。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 教師一般管教措施 -->
+                    <div class="p-5 bg-indigo-50/80 dark:bg-indigo-950/30 rounded-2xl border border-indigo-200 dark:border-indigo-900/60 shadow-sm space-y-2">
+                        <div class="flex items-center gap-2 text-indigo-700 dark:text-indigo-400 font-bold text-sm">
+                            <span class="p-1 bg-indigo-200 dark:bg-indigo-900 rounded-lg">👨‍🏫</span>
+                            <h3>第七點 教師 16 項一般管教措施</h3>
+                        </div>
+                        <p class="text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed">
+                            明定口頭糾正、調整座位、書面自省、靜坐反省。特別限制：<strong>站立反省每次不得超過1堂課、每日累計不得超過2小時</strong>；暫隔適當距離以2堂課為限；家長同意後始得留置課後輔導。
+                        </p>
+                    </div>
+
+                    <!-- 獎懲會正當法律程序 -->
+                    <div class="p-5 bg-teal-50/80 dark:bg-teal-950/30 rounded-2xl border border-teal-200 dark:border-teal-900/60 shadow-sm space-y-2">
+                        <div class="flex items-center gap-2 text-teal-700 dark:text-teal-400 font-bold text-sm">
+                            <span class="p-1 bg-teal-200 dark:bg-teal-900 rounded-lg">⚖️</span>
+                            <h3>獎懲會正當法律程序保障</h3>
+                        </div>
+                        <ul class="text-xs text-teal-800 dark:text-teal-300 space-y-1.5 list-disc pl-4 pt-1">
+                            <li><strong>委員組織</strong>：置委員7人，任一性別不少於1/3，教師與家長代表不少於1/2，<strong>納入學生代表</strong>。</li>
+                            <li><strong>陳述意見</strong>：開會 <strong>5 個工作日前通知</strong> 學生及家長到場或書面陳述。</li>
+                            <li><strong>決定書教示</strong>：敘明事實理由、法令依據及<strong>救濟方法/受理機關</strong>。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 28點條文對照總覽 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 dark:border-slate-700 space-y-6">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-700">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">南投縣立南投國民中學學生獎懲規定（全文28點）</h2>
+                            <p class="text-xs text-slate-500 mt-1">依據教育部 113.04.30 頒布「國民小學及國民中學學生獎懲準則」修正</p>
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300">總則條款</span>
+                    </div>
+
+                    <div id="rules-28-list" class="space-y-4 text-sm leading-relaxed divide-y divide-slate-100 dark:divide-slate-700/60">
+                        <!-- Populated by JS for clean typography and high usability -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: 改過銷過要點與試算 -->
             <div id="tab-clearance" class="hidden space-y-6">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- 左兩欄：要點內容與規範解析 -->
@@ -376,7 +460,7 @@
                 </div>
             </div>
 
-            <!-- TAB 3: 法規全文檢索與閱覽 -->
+            <!-- TAB 4: 法規全文檢索與閱覽 -->
             <div id="tab-fulltext" class="hidden space-y-6">
                 <!-- 全文即時檢索工具列 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-700 max-w-4xl mx-auto">
@@ -417,181 +501,227 @@
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200/80 dark:border-slate-700 max-w-4xl mx-auto space-y-8">
-                    <!-- 標頭 -->
-                    <div class="text-center pb-6 border-b border-slate-200 dark:border-slate-700">
-                        <span class="text-xs uppercase tracking-widest text-teal-600 dark:text-teal-400 font-bold">校規公報法規存檔</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold font-serif text-slate-900 dark:text-white mt-1">南投縣立南投國中獎懲要點暨改過銷過辦法</h2>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">中華民國 114 年 1 月 20 日校務會議通過</p>
-                    </div>
-
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200/80 dark:border-slate-700 max-w-4xl mx-auto space-y-10">
+                    
                     <!-- 條文全文主體容器（供全文檢索高亮替換） -->
-                    <div id="fulltext-article-body" class="space-y-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                        <!-- 第一條 -->
-                        <section class="space-y-2">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第一條</h3>
-                            <p class="indent-6">本辦法依國民教育法第四十四條及南投縣國民小學及國民中學學生獎懲辦法訂定之。</p>
-                        </section>
-
-                        <!-- 第二條 -->
-                        <section class="space-y-3">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第二條</h3>
-                            <p class="indent-6">國民小學及國民中學所為書面獎勵，包括嘉獎、小功及大功獎勵措施，具體內容如下：</p>
-                            
-                            <div class="pl-4 space-y-4">
-                                <div>
-                                    <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-1.5">(一) 嘉獎：</h4>
-                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
-                                        <li>服裝儀容經常整潔，合於規定，足為同學模範者。</li>
-                                        <li>禮節周到足為同學模範者。</li>
-                                        <li>參加團體活動積極熱心表現優異者。</li>
-                                        <li>拾物不昧，其價值較小者。</li>
-                                        <li>與同學互助合作有具體表現優良者。</li>
-                                        <li>愛護公物有具體行為者。</li>
-                                        <li>領導同學為團體服務者。</li>
-                                        <li>值勤表現優良者。</li>
-                                        <li>經常主動為公服務。</li>
-                                        <li>運動比賽時表現體育道德有具體事實者。</li>
-                                        <li>於校內各類刊物發表優良作品者。</li>
-                                        <li>其他優良行為適合記嘉獎者。</li>
-                                    </ol>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-bold text-teal-700 dark:text-teal-400 mb-1.5">(二) 小功：</h4>
-                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
-                                        <li>行為誠正，足以表現校風，有具體事實者。</li>
-                                        <li>維護公物，使團體利益不受損害者。</li>
-                                        <li>熱心愛國愛校運動，確有特殊成績表現者。</li>
-                                        <li>見義勇為能保全團體或同學利益，確有具體事實者。</li>
-                                        <li>熱心公益活動能增進校譽，有具體事實者。</li>
-                                        <li>敬老扶幼有顯著之事實表現者。</li>
-                                        <li>檢舉弊害經查明屬實者。</li>
-                                        <li>拾物不昧價值貴重。</li>
-                                        <li>被選為各級幹部負責盡職表現優良者。</li>
-                                        <li>執勤服務表現優良者。</li>
-                                        <li>代表學校參加校外活動，增進校譽確有具體事實者。</li>
-                                        <li>於校外優良刊物發表作品者。</li>
-                                        <li>其他優良行為適合記小功者。</li>
-                                    </ol>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-bold text-blue-700 dark:text-blue-400 mb-1.5">(三) 大功：</h4>
-                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
-                                        <li>提供優良建議，並能率先力行，增進校譽者。</li>
-                                        <li>愛護學校或同學，確有特殊事實表現，因而增進校譽者。</li>
-                                        <li>檢舉重大弊害，經查明屬實者。</li>
-                                        <li>拾物不昧，其價值特別貴重者。</li>
-                                        <li>參加各種服務，成績特優者。</li>
-                                        <li>代表學校參加對外比賽，成績特優者。</li>
-                                        <li>其他優良行為適合記大功者。</li>
-                                    </ol>
-                                </div>
+                    <div id="fulltext-article-body" class="space-y-10 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        
+                        <!-- 第一大部分：學生獎懲規定（總則28點） -->
+                        <div class="space-y-6 pb-8 border-b border-slate-200 dark:border-slate-700">
+                            <div class="text-center pb-4">
+                                <span class="text-xs uppercase tracking-widest text-teal-600 dark:text-teal-400 font-bold">校規總則 ｜ 115年10月29日修正發布</span>
+                                <h2 class="text-2xl sm:text-3xl font-extrabold font-serif text-slate-900 dark:text-white mt-1">南投縣立南投國民中學學生獎懲規定</h2>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">114年8月29日校務會議通過 ｜ 115年1月20日校務會議通過 ｜ 115年10月29日修正</p>
                             </div>
-                        </section>
 
-                        <!-- 第三條 -->
-                        <section class="space-y-3">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第三條</h3>
-                            <p class="indent-6">國民中學所為書面懲處措施，包括警告、小過、大過措施，具體內容如下：</p>
+                            <section class="space-y-3">
+                                <p><strong>一、依據：</strong><br>教育部113年4月30日頒布「國民小學及國民中學學生獎懲準則」(下稱本準則)。<br>南投縣國民小學及國民中學學生獎懲辦法。</p>
+                                <p><strong>二、目的：</strong>鼓勵或糾正學生行為，培養學生優良品德，以奠定敦品勵學之良好教育基礎。</p>
+                                <p><strong>三、差別待遇之禁止：</strong>本校獎勵管教和懲處學生，非有正當理由，不得為差別待遇。</p>
+                                <p><strong>四、比例原則：</strong>進行學生獎懲時，應與學生違規行為之情節輕重相當，並依下列原則為之：<br>1. 採取之措施應有助於目的之達成。<br>2. 有多種同樣能達成目的之措施時，應選擇對學生權益損害較少者。<br>3. 採取之措施所造成之損害不得與欲達成目的之利益顯失均衡。</p>
+                                <p><strong>五、審酌情狀：</strong>本校獎勵管教或懲處學生，應審酌學生下列情形，以確保懲處措施之合理有效性：<br>1. 行為之動機及目的。<br>2. 行為之手段及行為時所受之外在情境影響。<br>3. 行為違反義務之程度及所生之危險或損害。<br>4. 學生之人格特質、身心健康狀況、生活狀況及家庭狀況。<br>5. 學生之品行、智識程度及平時表現。<br>6. 行為後之態度。<br>前項所稱行為包含作為及不作為。</p>
+                                <p><strong>六、管教措施體系：</strong>教師、學務處、輔導室或學校對學生採取合宜之管教措施如下：<br>1. 一般管教措施：指教師個人採取之管教措施。<br>2. 學務處與輔導室之特殊管教措施：指學務處及輔導室採取之管教措施。<br>3. 學校之特殊管教措施：指經本校學生獎懲委員會(以下簡稱獎懲會)討論決議後，學校採取之特殊管教措施。</p>
+                                <p><strong>七、教師一般管教措施（16項）：</strong>教師基於導引學生發展之考量，衡酌學生身心狀況後，得採取下列一般管教措施：<br>
+                                (1) 適當之正向管教措施。(2) 口頭糾正。(3) 在教室內適當調整座位。(4) 要求口頭道歉或書面自省。(5) 列入日常生活表現紀錄。(6) 通知法定代理人或實際照顧者，協請處理。(7) 要求完成未完成之作業或工作。(8) 適當增加作業或工作。(9) 要求課餘從事可達成管教目的之措施。(10) 限制參加正式課程以外之學校活動。(11) 經法定代理人或實際照顧者同意後，留置學生於課後輔導或參加輔導課程。(12) 要求靜坐反省。(13) <strong>要求站立反省。但每次不得超過一堂課，每日累計不得超過兩小時。</strong>(14) <strong>在教學場所一隅，暫時讓學生與其他同學保持適當距離，並以兩堂課為限。</strong>(15) 經其他教師同意，於行為當日，暫時轉送其他班級學習。(16) 其他符合輔導管教相關法令規定之管教目的及原則，且未使學生身心受到侵害之行為。</p>
+                                <p><strong>八、管教無效與處室協處：</strong>依前條所為之管教無效或學生明顯不服管教，顯已妨害現場活動，教師得要求學務處或輔導室派員協助，將學生帶離現場；情況急迫時，學務處或輔導室應派員協助處理，非有正當理由不得拒絕；有危害他人生命、身體之虞時，得強制帶離現場，並尋求校外相關機構協助處理。教師應主動告知已實施之輔導管教措施或提供輔導管教紀錄供參考。帶離現場後得安排學生前往圖書館、輔導室或適當場所。學務處或輔導室必要時得基於協助轉換情境、宣洩壓力之輔導目的進行活動或運動，但不應基於處罰之目的為之。</p>
+                                <p><strong>九、學校特殊管教措施：</strong>學務處認為學生違規情節重大，擬採取交由法定代理人帶回管教、規劃參加高關懷課程、聯繫社政單位心理治療諮商、少年輔導、移送警察、移送司法等處置，應簽會導師及輔導室，經獎懲會討論決議後始得為之。帶回管教每次以五日為限，事前家訪面談評估效果，期間保持聯繫輔導，結束後得視需要補課。</p>
+                                <p class="bg-rose-50 dark:bg-rose-950/30 p-3 rounded-lg border border-rose-200 dark:border-rose-900/50 text-rose-800 dark:text-rose-200"><strong>十、違反服裝儀容規定【禁止懲處原則】：</strong>學務處對於違反服裝儀容規定之學生，得視其情節，由教師採取適當且符合比例原則之輔導或管教措施，並<strong>不得加以懲處</strong>。前項管教措施，僅限於正向管教措施、口頭糾正、列入日常生活表現紀錄、通知法定代理人協請處理、書面自省及靜坐反省。</p>
+                                <p class="bg-rose-50 dark:bg-rose-950/30 p-3 rounded-lg border border-rose-200 dark:border-rose-900/50 text-rose-800 dark:text-rose-200"><strong>十一、情感交往規範【禁止懲處原則】：</strong>學校訂定學生獎懲規定時，應考量保護學生身心安全之規範目的，明確規定懲處要件，<strong>不得僅以情感交往、情感關係曖昧、情感行為不檢或其他空泛籠統之概念作為懲處要件</strong>。</p>
+                                <p class="bg-rose-50 dark:bg-rose-950/30 p-3 rounded-lg border border-rose-200 dark:border-rose-900/50 text-rose-800 dark:text-rose-200"><strong>十二、授課日出缺勤規範【禁止懲處原則】：</strong>本校對學生於授課日之出缺席狀況，得採取適當且符合比例原則之輔導或管教措施，並<strong>不得加以懲處</strong>。</p>
+                                <p><strong>十三、配合義務：</strong>本校教職員工對學校處理本準則事件，有提供相關資料及配合說明之義務。</p>
+                                <p><strong>十四、獎勵措施：</strong>師長口頭嘉勉；書面獎勵（嘉獎、小功、大功）；公開場合表揚；登載刊物；頒發獎狀獎章；頒發獎品獎金；推舉學習楷模；其他適當獎勵。</p>
+                                <p><strong>十五、書面懲處措施：</strong>警告、小過、大過。</p>
+                                <p><strong>十六、獎懲會組織：</strong>置委員七人，任期一年，由校長就行政人員代表（學務主任為當然委員）、學校教師代表、學校家長代表、學生代表聘兼。任一性別不少於三分之一；教師及家長代表不少於二分之一；不得兼任申評會委員。</p>
+                                <p><strong>十七、獎懲會任務：</strong>研擬訂修規定；審議大功獎勵；審議大過懲處；審議特殊管教事件；審議其他重大事件。</p>
+                                <p><strong>十八、會議召集：</strong>學務主任為主席，親自出席，三分之二以上出席始得開會，出席二分之一以上同意始得決議。</p>
+                                <p><strong>十九、程序：</strong>嘉獎小功簽會導師送學務處核定；警告小過簽會導師及輔導室送學務處核定；重大事件提獎懲會決議。</p>
+                                <p><strong>二十、會議不公開原則。</strong></p>
+                                <p><strong>二十一、審議原則與程序：</strong>客觀公正專業。審議管教懲處事件應於<strong>開會五個工作日前通知</strong>陳述意見。無記名投票表決。嚴守保密義務。</p>
+                                <p><strong>二十二、專業諮詢：</strong>得邀請社工師、心理師、學者專家到場說明。</p>
+                                <p><strong>二十三、司法獨立性：</strong>懲處程序不受刑事偵查審判結果影響。</p>
+                                <p><strong>二十四、審議期限：</strong>收受書面提案次日起一個月內為之，得延長一個月為限。</p>
+                                <p><strong>二十五、決定書與救濟：</strong>作成審議決定書記載主旨、事實、理由、法令依據及<strong>救濟方法、期間及受理機關</strong>書面送達法定代理人。</p>
+                                <p><strong>二十六、校長復議：</strong>校長有異議敘明理由送復議；出席委員三分之二以上維持原決議校長應即核定執行。</p>
+                                <p><strong>二十七、改過銷過輔導原則：</strong>具教育目的與公共利益服務；行為表現觀察考核。</p>
+                                <p><strong>二十八、實施程序：</strong>經校務會議討論通過後實施，修正時亦同。</p>
+                            </section>
+                        </div>
 
-                            <div class="pl-4 space-y-4">
-                                <div>
-                                    <h4 class="font-bold text-amber-700 dark:text-amber-400 mb-1.5">(一) 警告：</h4>
-                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
-                                        <li>違反上課規定，影響教學秩序或他人學習，經教師採取一般管教措施仍未改善者。</li>
-                                        <li>不服從師長或糾察隊或幹部因執行公務之糾正者，情節輕微者。</li>
-                                        <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節輕微者。</li>
-                                        <li>值勤不盡職，影響他人權益或工作之推動者。</li>
-                                        <li>參加公眾或團體活動等，影響活動秩序、進行或他人權益，情節輕微者。</li>
-                                        <li>拾物不送招領，據為己有，情節輕微者。</li>
-                                        <li>偷閱他人日記或信件者。</li>
-                                        <li>在公共場所高聲喧嚷影響秩序者。</li>
-                                        <li>損害公物不主動報告者。</li>
-                                        <li>亂丟垃圾或其他破壞環境衛生行為，經勸導仍未改正常。</li>
-                                        <li>對師長詢問事件以不誠實之謊言誤導，致事件未能妥善處理或於人員、財物受到傷害、損害及違法違規行為發生前阻卻，情節輕微者。</li>
-                                        <li>未經同意使用他人智慧財產權。</li>
-                                        <li>不遵守道路交通安全規則，情節輕微者。</li>
-                                        <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，情節輕微者。</li>
-                                        <li>故意毀損公物，情節輕微者。</li>
-                                        <li>違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節輕微者。</li>
-                                    </ol>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-bold text-orange-700 dark:text-orange-400 mb-1.5">(二) 小過：</h4>
-                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
-                                        <li>蓄意違反集會秩序，影響他人權益或集會之進行者。</li>
-                                        <li>違反試場規則，情節輕微者。</li>
-                                        <li>攜帶、觀看、傳閱不正當之書刊、圖片或影片者。</li>
-                                        <li>冒用或偽造家長文書印章者。</li>
-                                        <li>塗改點名單、請假單、成績單或其他資料者。</li>
-                                        <li>不假離校外出者。</li>
-                                        <li>拾物不送招領，據為己有，情節嚴重者。</li>
-                                        <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，經糾正不聽者。</li>
-                                        <li>偷竊行為，情節輕微者。</li>
-                                        <li>不服從師長或糾察隊或幹部因執行公務之糾正，情節嚴重者。</li>
-                                        <li>擔任班級幹部不負責盡職，影響工作推展者。</li>
-                                        <li>不遵守道路交通安全規則，經糾正不聽或情節嚴重者。</li>
-                                        <li>飲酒、抽煙、嚼檳榔者。</li>
-                                        <li>賭博行為，情節輕微者。</li>
-                                        <li>出入禁止未滿十八歲進入之場所者。</li>
-                                        <li>毆打同學，情節輕微者。</li>
-                                        <li>經學校性別平等教育委員會審議認定有性騷擾或性霸凌行為，情節輕微者。</li>
-                                        <li>經學校校園霸凌防制委員會調查確認有霸凌行為，情節輕微者。</li>
-                                        <li>參加公眾或團體活動等，影響活動秩序、進行或他人權益，經勸導仍不改正者。</li>
-                                        <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，屢勸仍再犯且情節尚未重大者。</li>
-                                        <li>故意毀損公物，屢勸仍再犯且情節尚未重大者。</li>
-                                        <li>違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節嚴重者。</li>
-                                    </ol>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-bold text-rose-700 dark:text-rose-400 mb-1.5">(三) 大過：</h4>
-                                    <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
-                                        <li>樹立幫派或參加不良組織。</li>
-                                        <li>集體械鬥情節重大者。</li>
-                                        <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節嚴重者。</li>
-                                        <li>違反試場規則，情節嚴重者。</li>
-                                        <li>竊盜行為情節重大者。</li>
-                                        <li>勒索威脅者。</li>
-                                        <li>蓄意規避公共服務，經勸導無效，並有意影響煽動他人，嚴重影響公共事務之推動者。</li>
-                                        <li>酗酒、吸食或注射違禁藥品。</li>
-                                        <li>賭博行為，情節嚴重者。</li>
-                                        <li>寄宿生不假外出者。</li>
-                                        <li>校內、外言行涉及各校學生獎懲規定或違反公共秩序，經民眾陳情、相關機關通報或引起社會輿情，情節重大者。</li>
-                                        <li>未經同意使用他人智慧財產權營利，如販賣。</li>
-                                        <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，涉及公共安全且情節重大者。</li>
-                                        <li>故意毀損公物，情節嚴重者。</li>
-                                        <li>聚集校外人士到校滋事者。</li>
-                                        <li>收留逃學、逃家同學而故意隱藏不報者。</li>
-                                        <li>經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌為情節重大者。</li>
-                                        <li>經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。</li>
-                                    </ol>
-                                </div>
+                        <!-- 第二大部分：南投國中獎懲要點暨改過銷過辦法（具體裁量基準 5 條） -->
+                        <div class="space-y-6">
+                            <div class="text-center pb-4">
+                                <span class="text-xs uppercase tracking-widest text-teal-600 dark:text-teal-400 font-bold">具體裁量要點 ｜ 88款獎懲標準</span>
+                                <h2 class="text-2xl sm:text-3xl font-extrabold font-serif text-slate-900 dark:text-white mt-1">南投縣立南投國中獎懲要點暨改過銷過辦法</h2>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">115年1月20日校務會議通過 ｜ 115年10月29日對照修訂</p>
                             </div>
-                        </section>
 
-                        <!-- 第四條 -->
-                        <section class="space-y-2">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第四條</h3>
-                            <p class="indent-6">改過銷過之申請得由學校有關人員或受懲罰之學生向學務處領取表格，填妥資料由導師簽註具體事實，小過以下之處分由學務主任核定，大過以上之處分提學生獎懲委員會討論議決，由校長核定，並依下列原則辦理：</p>
-                            <div class="pl-6 space-y-1 text-xs sm:text-sm">
-                                <p>(一) 經考察確有改過自新者。</p>
-                                <p>(二) 申請改過、銷過於下列考察時段期滿後為之：</p>
-                                <p class="pl-4">1. 警告：三週以上。</p>
-                                <p class="pl-4">2. 小過：六週以上。</p>
-                                <p class="pl-4">3. 大過：九週以上。</p>
-                            </div>
-                            <p class="indent-6 mt-2">前項申請於三年級下學期公佈之懲罰不適用之；經銷過之行為，於同一學年內再犯者，亦同。轉學生於學籍轉入三個月後表現良好，經由學生向導師或學務處申請認可後，方得進行銷過事宜。</p>
-                        </section>
+                            <!-- 第一條 -->
+                            <section class="space-y-2">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">第一條</h3>
+                                <p class="indent-6">本辦法依國民教育法第四十四條及南投縣國民小學及國民中學學生獎懲辦法訂定之。</p>
+                            </section>
 
-                        <!-- 第五條 -->
-                        <section class="space-y-2">
-                            <h3 class="text-base font-bold text-slate-900 dark:text-white">第五條</h3>
-                            <p class="indent-6">本要點經校務會議通過後公告實施。</p>
-                        </section>
+                            <!-- 第二條 -->
+                            <section class="space-y-3">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">第二條</h3>
+                                <p class="indent-6">國民小學及國民中學所為書面獎勵，包括嘉獎、小功及大功獎勵措施，具體內容如下：</p>
+                                
+                                <div class="pl-4 space-y-4">
+                                    <div>
+                                        <h4 class="font-bold text-emerald-700 dark:text-emerald-400 mb-1.5">(一) 嘉獎：</h4>
+                                        <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                            <li>服裝儀容經常整潔，合於規定，足為同學模範者。</li>
+                                            <li>禮節周到足為同學模範者。</li>
+                                            <li>參加團體活動積極熱心表現優異者。</li>
+                                            <li>拾物不昧，其價值較小者。</li>
+                                            <li>與同學互助合作有具體表現優良者。</li>
+                                            <li>愛護公物有具體行為者。</li>
+                                            <li>領導同學為團體服務者。</li>
+                                            <li>值勤表現優良者。</li>
+                                            <li>經常主動為公服務。</li>
+                                            <li>運動比賽時表現體育道德有具體事實者。</li>
+                                            <li>於校內各類刊物發表優良作品者。</li>
+                                            <li>其他優良行為適合記嘉獎者。</li>
+                                        </ol>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-bold text-teal-700 dark:text-teal-400 mb-1.5">(二) 小功：</h4>
+                                        <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                            <li>行為誠正，足以表現校風，有具體事實者。</li>
+                                            <li>維護公物，使團體利益不受損害者。</li>
+                                            <li>熱心愛國愛校運動，確有特殊成績表現者。</li>
+                                            <li>見義勇為能保全團體或同學利益，確有具體事實者。</li>
+                                            <li>熱心公益活動能增進校譽，有具體事實者。</li>
+                                            <li>敬老扶幼有顯著之事實表現者。</li>
+                                            <li>檢舉弊害經查明屬實者。</li>
+                                            <li>拾物不昧價值貴重。</li>
+                                            <li>被選為各級幹部負責盡職表現優良者。</li>
+                                            <li>執勤服務表現優良者。</li>
+                                            <li>代表學校參加校外活動，增進校譽確有具體事實者。</li>
+                                            <li>於校外優良刊物發表作品者。</li>
+                                            <li>其他優良行為適合記小功者。</li>
+                                        </ol>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-bold text-blue-700 dark:text-blue-400 mb-1.5">(三) 大功：</h4>
+                                        <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                            <li>提供優良建議，並能率先力行，增進校譽者。</li>
+                                            <li>愛護學校或同學，確有特殊事實表現，因而增進校譽者。</li>
+                                            <li>檢舉重大弊害，經查明屬實者。</li>
+                                            <li>拾物不昧，其價值特別貴重者。</li>
+                                            <li>參加各種服務，成績特優者。</li>
+                                            <li>代表學校參加對外比賽，成績特優者。</li>
+                                            <li>其他優良行為適合於記大功者。</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- 第三條 -->
+                            <section class="space-y-3">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">第三條</h3>
+                                <p class="indent-6">國民中學所為書面懲處措施，包括警告、小過、大過措施，具體內容如下：</p>
+
+                                <div class="pl-4 space-y-4">
+                                    <div>
+                                        <h4 class="font-bold text-amber-700 dark:text-amber-400 mb-1.5">(一) 警告：</h4>
+                                        <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                            <li>違反上課規定，影響教學秩序或他人學習，經教師採取一般管教措施仍未改善者。</li>
+                                            <li>無故不服從師長或糾察隊或幹部因執行公務之糾正者，情節輕微者。</li>
+                                            <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節輕微者。</li>
+                                            <li>值勤不盡職，影響他人權益或工作之推動者。</li>
+                                            <li>參加公眾或團體活動等，影響活動秩序、進行或他人權益，情節輕微者。</li>
+                                            <li>拾物不送招領，據為己有，情節輕微者。</li>
+                                            <li>偷閱他人日記或信件者。</li>
+                                            <li>在公共場所高聲喧嚷影響秩序者。</li>
+                                            <li>損害公物不主動報告者。</li>
+                                            <li>亂丟垃圾或其他破壞環境衛生行為，經勸導仍未改正者。</li>
+                                            <li>對師長詢問事件以不誠實之謊言誤導，致事件未能妥善處理或於人員、財物受到傷害、損害及違法違規行為發生前阻卻，情節輕微者。</li>
+                                            <li>未經同意使用他人智慧財產權。</li>
+                                            <li>不遵守道路交通安全規則，情節輕微者。</li>
+                                            <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，情節輕微者。</li>
+                                            <li>故意毀損公物，情節輕微者。</li>
+                                            <li>違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節輕微者。</li>
+                                        </ol>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-bold text-orange-700 dark:text-orange-400 mb-1.5">(二) 小過：</h4>
+                                        <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                            <li>蓄意違反集會秩序，影響他人權益或集會之進行者。</li>
+                                            <li>違反試場規則，情節輕微者。</li>
+                                            <li>攜帶、觀看、傳閱不正當之書刊、圖片或影片者。</li>
+                                            <li>冒用或偽造家長文書印章者。</li>
+                                            <li>塗改點名單、請假單、成績單或其他資料者。</li>
+                                            <li>不假離校外出者。</li>
+                                            <li>拾物不送招領，據為己有，情節嚴重者。</li>
+                                            <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，經糾正不聽者。</li>
+                                            <li>偷竊行為，情節輕微者。</li>
+                                            <li>無故不服從師長或糾察隊或幹部因執行公務之糾正，情節嚴重者。</li>
+                                            <li>擔任班級幹部不負責盡職，影響工作推展者。</li>
+                                            <li>不遵守道路交通安全規則，經糾正不聽或情節嚴重者。</li>
+                                            <li>飲酒、抽煙、嚼檳榔者。</li>
+                                            <li>賭博行為，情節輕微者。</li>
+                                            <li>出入禁止未滿十八歲進入之場所者。</li>
+                                            <li>毆打同學，情節輕微者。</li>
+                                            <li>經學校性別平等教育委員會審議認定有性騷擾或性霸凌行為，情節輕微者。</li>
+                                            <li>經學校校園霸凌防制委員會調查確認有霸凌行為，情節輕微者。</li>
+                                            <li>參加公眾或團體活動等，影響活動秩序、進行或他人權益，經勸導仍不改正者。</li>
+                                            <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，屢勸仍再犯且情節尚非重大者。</li>
+                                            <li>故意毀損公物，屢勸仍再犯且情節尚非重大者。</li>
+                                            <li>違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節嚴重者。</li>
+                                        </ol>
+                                    </div>
+
+                                    <div>
+                                        <h4 class="font-bold text-rose-700 dark:text-rose-400 mb-1.5">(三) 大過：</h4>
+                                        <ol class="list-decimal pl-6 space-y-1 text-xs sm:text-sm">
+                                            <li>樹立幫派或參加不良組織。</li>
+                                            <li>集體械鬥情節重大者。</li>
+                                            <li>言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節嚴重者。</li>
+                                            <li>違反試場規則，情節嚴重者。</li>
+                                            <li>竊盜行為情節重大者。</li>
+                                            <li>勒索威脅者。</li>
+                                            <li>蓄意規避公共服務，經勸導無效，並有意影響煽動他人，嚴重影響公共事務之推動者。</li>
+                                            <li>酗酒、吸食或注射違禁藥品。</li>
+                                            <li>賭博行為，情節嚴重者。</li>
+                                            <li>寄宿生不假外出者。</li>
+                                            <li>校內、外言行涉及各校學生獎懲規定或違反公共秩序，經民眾陳情、相關機關通報或引起社會輿情，情節重大者。</li>
+                                            <li>未經同意使用他人智慧財產權營利，如販賣。</li>
+                                            <li>攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，涉及公共安全且情節重大者。</li>
+                                            <li>故意毀損公物，情節嚴重者。</li>
+                                            <li>聚集校外人士到校滋事者。</li>
+                                            <li>收留逃學、逃家同學而故意隱藏不報者。</li>
+                                            <li>經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌行為情節重大者。</li>
+                                            <li>經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- 第四條 -->
+                            <section class="space-y-2">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">第四條</h3>
+                                <p class="indent-6">改過銷過之申請得由學校有關人員或受懲罰之學生向學務處領取表格，填妥資料由導師簽註具體事實，小過以下之處分由學務主任核定，大過以上之處分提學生獎懲委員會討論議決，由校長核定，並依下列原則辦理：</p>
+                                <div class="pl-6 space-y-1 text-xs sm:text-sm">
+                                    <p>(一) 經考察確有改過自新者。</p>
+                                    <p>(二) 申請改過、銷過於下列考察時段期滿後為之：</p>
+                                    <p class="pl-4">1. 警告：三週以上。</p>
+                                    <p class="pl-4">2. 小過：六週以上。</p>
+                                    <p class="pl-4">3. 大過：九週以上。</p>
+                                </div>
+                                <p class="indent-6 mt-2">前項申請於三年級下學期公佈之懲罰不適用之；經銷過之行為，於同一學年內再犯者，亦同。轉學生於學籍轉入三個月後表現良好，經由學生向導師或學務處申請認可後，方得進行銷過事宜。</p>
+                            </section>
+
+                            <!-- 第五條 -->
+                            <section class="space-y-2">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">第五條</h3>
+                                <p class="indent-6">本要點經校務會議通過後公告實施。</p>
+                            </section>
+                        </div>
+
                     </div>
 
                     <!-- 簽署欄 (姓名第2字用 O 替代) -->
@@ -621,7 +751,7 @@
 
         <!-- 頁尾 -->
         <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-400 space-y-1">
-            <p>南投縣立南投國中 學生獎懲要點暨改過銷過辦法 數位查詢系統</p>
+            <p>南投縣立南投國民中學 學生獎懲規定暨獎懲要點 數位查詢系統</p>
             <p>校址：540 南投市民族路328號 ｜ 系統支援：學務處生活教育組</p>
         </footer>
     </div>
@@ -636,14 +766,50 @@
 
     <!-- 資料腳本與邏輯 -->
     <script>
-        // 資料集定義（擴充涵蓋全法規所有條目、銷過程序與簽核人員，提供 100% 全文檢索）
+        // 規定28點結構化資料清單
+        const RULES_28_ITEMS = [
+            { num: "一", title: "法令依據", desc: "教育部113年4月30日頒布「國民小學及國民中學學生獎懲準則」及南投縣國民小學及國民中學學生獎懲辦法。" },
+            { num: "二", title: "訂定目的", desc: "鼓勵或糾正學生行為，培養學生優良品德，以奠定敦品勵學之良好教育基礎。" },
+            { num: "三", title: "差別待遇之禁止", desc: "本校獎勵管教和懲處學生，非有正當理由，不得為差別待遇。" },
+            { num: "四", title: "比例原則遵循", desc: "採取之措施應有助於目的達成；有多種手段時應選擇對學生權益損害較少者；所造成之損害不得與欲達成目的之利益顯失均衡。" },
+            { num: "五", title: "審酌情狀要素", desc: "應審酌行為之動機目的、手段與外在情境、違反義務程度及危險損害、學生人格特質身心生活家庭狀況、品行平時表現、行為後態度。" },
+            { num: "六", title: "管教措施體系", desc: "分為教師個人之「一般管教措施」、學務處與輔導室之「特殊管教措施」，以及經獎懲會決議後之「學校特殊管教措施」。" },
+            { num: "七", title: "教師16項一般管教措施", desc: "含正向管教、口頭糾正、調整座位、書面自省、列入紀錄、通知家長、完成作業、課餘管教、限制非正式活動、留置課後輔導、要求靜坐反省、要求站立反省（每次限1堂課/每日累計限2小時）、教學場所一隅暫隔適當距離（限2堂課）、暫送他班學習。" },
+            { num: "八", title: "管教無效與處室協處", desc: "管教無效或妨害現場時得要求學務處或輔導室派員帶離現場；情況急迫非有正當理由不得拒絕；有危害他人生命身體得強制帶離。得安排至圖書館或適當場所；活動轉換壓力宣洩不得基於處罰目的。" },
+            { num: "九", title: "學校特殊管教措施（提獎懲會）", desc: "違規情節重大得經獎懲會議決：法定代理人帶回管教（每次限5日並事前家訪面談）、高關懷課程、聯繫社政心理諮商、少年輔導、移送警政或司法機關。保障學生及家長陳述意見。" },
+            { num: "十", title: "違反服裝儀容規定【不得懲處】", desc: "對於違反服裝儀容規定之學生，由教師採取適當管教措施，並【不得加以懲處】。管教僅限正向管教、口頭糾正、紀錄、通知家長、書面自省及靜坐反省。" },
+            { num: "十一", title: "情感交往規範【不得作為懲處要件】", desc: "應考量保護身心安全，明確規定懲處要件，【不得僅以情感交往、情感關係曖昧、情感行為不檢等空泛籠統概念作為懲處要件】。" },
+            { num: "十二", title: "授課日出缺勤規範【不得懲處】", desc: "本校對學生於授課日之出缺席狀況，得採取適當且符合比例原則之輔導管教措施，並【不得加以懲處】。" },
+            { num: "十三", title: "教職員工協力義務", desc: "本校教職員工對學校處理本準則事件，有提供相關資料及配合說明之義務。" },
+            { num: "十四", title: "獎勵措施種類", desc: "師長口頭嘉勉、書面獎勵（嘉獎/小功/大功）、公開表揚、登載刊物、頒發獎狀獎章、頒發獎品獎金、推舉學習楷模、其他適當獎勵。" },
+            { num: "十五", title: "書面懲處措施種類", desc: "警告、小過、大過。" },
+            { num: "十六", title: "學生獎懲委員會組織", desc: "置委員7人，任期1年。包含行政代表（學務主任為當然委員）、教師代表、家長代表、學生代表。任一性別不少於1/3；教師與家長代表不少於1/2；不得兼任申評會委員。" },
+            { num: "十七", title: "獎懲會任務", desc: "研擬訂修學生獎懲規定；審議大功獎勵事件；審議大過懲處事件；審議學校特殊管教事件；審議其他重大學生獎懲事件。" },
+            { num: "十八", title: "會議召集與表決門檻", desc: "學務主任為主席，委員應親自出席不得代理。應有委員三分之二以上出席始得開會；經出席委員二分之一以上同意始得決議。" },
+            { num: "十九", title: "獎懲案件核定程序", desc: "嘉獎/小功簽會導師送學務處核定；警告/小過簽會導師及輔導室送學務處核定；大功/大過/特殊管教由學務處簽會導師及輔導室後提獎懲會討論決議。" },
+            { num: "二十", title: "會議不公開原則", desc: "獎懲會審議管教及獎懲事件，應不公開。" },
+            { num: "二十一", title: "正當法律程序與保密", desc: "審議管教及懲處事件應於【開會5個工作日前通知】相關單位、學生及家長書面或到場陳述意見。以無記名投票表決。對個人意見及學生隱私嚴守保密。" },
+            { num: "二十二", title: "專業諮詢與列席", desc: "得邀請社工師、心理師、學者專家或機關指派人員到場諮詢或說明。" },
+            { num: "二十三", title: "司法程序獨立原則", desc: "同一行為懲處程序不受刑事偵查、審判或其他司法程序進行與結果影響。" },
+            { num: "二十四", title: "案件審理時限", desc: "收受書面提案次日起1個月內為之，必要時得延長1次且不逾1個月，並通知當事人及家長。" },
+            { num: "二十五", title: "決定書與救濟教示", desc: "校長核定後作成審議決定書，記載主旨、事實、理由、法令依據及不服之【救濟方法、期間及受理機關】，以存證方式書面送達法定代理人。" },
+            { num: "二十六", title: "校長復議程序", desc: "校長對決議有異議敘明理由送復議；出席委員三分之二以上決議維持原決議時校長應即核定執行。" },
+            { num: "二十七", title: "改過銷過輔導原則", desc: "以具教育目的與公共利益服務，及學生行為表現觀察考核為原則辦理。" },
+            { num: "二十八", title: "公佈施行程序", desc: "本規定經校務會議討論通過後實施，修正時亦同。" }
+        ];
+
+        // 索引資料集（涵蓋規定28點 ＋ 具體裁量要點 88款 ＋ 銷過規範 ＝ 共122項）
         const RULES_DATA = [
-            // 第一條：法源依據
-            { type: 'general', level: '總則', article: '第一條', tag: '法源依據', text: '本辦法依國民教育法第四十四條及南投縣國民小學及國民中學學生獎懲辦法訂定之。' },
+            // === 獎懲規定總則 28 點 ===
+            ...RULES_28_ITEMS.map(r => ({
+                type: 'rule',
+                level: '規定',
+                article: `規定第${r.num}點`,
+                tag: r.title.includes('不得懲處') ? '禁止懲處' : (r.title.includes('管教') ? '一般管教' : (r.title.includes('獎懲會') ? '獎懲委員會' : '總則規範')),
+                text: `${r.title}：${r.desc}`
+            })),
 
-            // 第二條前言
-            { type: 'reward', level: '嘉獎', article: '第二條前言', tag: '獎勵總則', text: '國民小學及國民中學所為書面獎勵，包括嘉獎、小功及大功獎勵措施。' },
-
+            // === 獎勵要點第二條 ===
             // 嘉獎 (12)
             { type: 'reward', level: '嘉獎', article: '第二條第(一)項第1款', tag: '儀容常規', text: '服裝儀容經常整潔，合於規定，足為同學模範者。' },
             { type: 'reward', level: '嘉獎', article: '第二條第(一)項第2款', tag: '禮節模範', text: '禮節周到足為同學模範者。' },
@@ -680,14 +846,12 @@
             { type: 'reward', level: '大功', article: '第二條第(三)項第4款', tag: '拾金不昧', text: '拾物不昧，其價值特別貴重者。' },
             { type: 'reward', level: '大功', article: '第二條第(三)項第5款', tag: '服務奉獻', text: '參加各種服務，成績特優者。' },
             { type: 'reward', level: '大功', article: '第二條第(三)項第6款', tag: '競賽活動', text: '代表學校參加對外比賽，成績特優者。' },
-            { type: 'reward', level: '大功', article: '第二條第(三)項第7款', tag: '其他優良', text: '其他優良行為適合記大功者。' },
+            { type: 'reward', level: '大功', article: '第二條第(三)項第7款', tag: '其他優良', text: '其他優良行為適合於記大功者。' },
 
-            // 第三條前言
-            { type: 'penalty', level: '警告', article: '第三條前言', tag: '懲處總則', text: '國民中學所為書面懲處措施，包括警告、小過、大過措施。' },
-
+            // === 懲處要點第三條 ===
             // 警告 (16)
             { type: 'penalty', level: '警告', article: '第三條第(一)項第1款', tag: '常規秩序', text: '違反上課規定，影響教學秩序或他人學習，經教師採取一般管教措施仍未改善者。' },
-            { type: 'penalty', level: '警告', article: '第三條第(一)項第2款', tag: '常規秩序', text: '不服從師長或糾察隊或幹部因執行公務之糾正者，情節輕微者。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第2款', tag: '常規秩序', text: '無故不服從師長或糾察隊或幹部因執行公務之糾正者，情節輕微者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第3款', tag: '言行法紀', text: '言行涉及公然侮辱、誹謗或恐嚇等法律責任，情節輕微者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第4款', tag: '服務奉獻', text: '值勤不盡職，影響他人權益或工作之推動者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第5款', tag: '常規秩序', text: '參加公眾或團體活動等，影響活動秩序、進行或他人權益，情節輕微者。' },
@@ -695,7 +859,7 @@
             { type: 'penalty', level: '警告', article: '第三條第(一)項第7款', tag: '隱私保護', text: '偷閱他人日記或信件者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第8款', tag: '常規秩序', text: '在公共場所高聲喧嚷影響秩序者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第9款', tag: '公物環境', text: '損害公物不主動報告者。' },
-            { type: 'penalty', level: '警告', article: '第三條第(一)項第10款', tag: '公物環境', text: '亂丟垃圾或其他破壞環境衛生行為，經勸導仍未改正常。' },
+            { type: 'penalty', level: '警告', article: '第三條第(一)項第10款', tag: '公物環境', text: '亂丟垃圾或其他破壞環境衛生行為，經勸導仍未改正者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第11款', tag: '言行法紀', text: '對師長詢問事件以不誠實之謊言誤導，致事件未能妥善處理或於人員、財物受到傷害、損害及違法違規行為發生前阻卻，情節輕微者。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第12款', tag: '智慧財產', text: '未經同意使用他人智慧財產權。' },
             { type: 'penalty', level: '警告', article: '第三條第(一)項第13款', tag: '交通安全', text: '不遵守道路交通安全規則，情節輕微者。' },
@@ -713,18 +877,18 @@
             { type: 'penalty', level: '小過', article: '第三條第(二)項第7款', tag: '拾金不昧', text: '拾物不送招領，據為己有，情節嚴重者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第8款', tag: '言行法紀', text: '言行涉及公然侮辱、誹謗或恐嚇等法律責任，經糾正不聽者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第9款', tag: '侵占竊盜', text: '偷竊行為，情節輕微者。' },
-            { type: 'penalty', level: '小過', article: '第三條第(二)項第10款', tag: '常規秩序', text: '不服從師長或糾察隊或幹部因執行公務之糾正，情節嚴重者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第10款', tag: '常規秩序', text: '無故不服從師長或糾察隊或幹部因執行公務之糾正，情節嚴重者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第11款', tag: '幹部盡職', text: '擔任班級幹部不負責盡職，影響工作推展者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第12款', tag: '交通安全', text: '不遵守道路交通安全規則，經糾正不聽或情節嚴重者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第13款', tag: '菸害酒害', text: '飲酒、抽煙、嚼檳榔者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第14款', tag: '賭博不良', text: '賭博行為，情節輕微者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第15款', tag: '不良場所', text: '出入禁止未滿十八歲進入之場所者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第16款', tag: '校園暴力', text: '毆打同學，情節輕微者。' },
-            { type: 'penalty', level: '小過', article: '第三條第(二)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性騷擾或性霸凌行為，情節輕微者。' },
-            { type: 'penalty', level: '小過', article: '第三條第(二)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性騷擾或性霸凌行為，情節輕微者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節輕微者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第19款', tag: '常規秩序', text: '參加公眾或團體活動等，影響活動秩序、進行或他人權益，經勸導仍不改正者。' },
-            { type: 'penalty', level: '小過', article: '第三條第(二)項第20款', tag: '違禁物品', text: '攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，屢勸仍再犯且情節尚未重大者。' },
-            { type: 'penalty', level: '小過', article: '第三條第(二)項第21款', tag: '公物環境', text: '故意毀損公物，屢勸仍再犯且情節尚未重大者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第20款', tag: '違禁物品', text: '攜帶學校訂定教師輔導與管教學生辦法注意事項第三十一點所指違法物品到校，屢勸仍再犯且情節尚非重大者。' },
+            { type: 'penalty', level: '小過', article: '第三條第(二)項第21款', tag: '公物環境', text: '故意毀損公物，屢勸仍再犯且情節尚非重大者。' },
             { type: 'penalty', level: '小過', article: '第三條第(二)項第22款', tag: '行動載具', text: '違反學校校園行動載具使用管理規範，經勸導無效或影響他人學習權益，情節嚴重者。' },
 
             // 大過 (18)
@@ -744,22 +908,18 @@
             { type: 'penalty', level: '大過', article: '第三條第(三)項第14款', tag: '公物環境', text: '故意毀損公物，情節嚴重者。' },
             { type: 'penalty', level: '大過', article: '第三條第(三)項第15款', tag: '校園安全', text: '聚集校外人士到校滋事者。' },
             { type: 'penalty', level: '大過', article: '第三條第(三)項第16款', tag: '通報責任', text: '收留逃學、逃家同學而故意隱藏不報者。' },
-            { type: 'penalty', level: '大過', article: '第三條第(三)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌為情節重大者。' },
-            { type: 'penalty', level: '大過', article: '第三條第(三)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌行為情節重大者。' },
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。' },
 
-            // 第四條：改過銷過
-            { type: 'clearance', level: '銷過', article: '第四條前言', tag: '銷過程序', text: '改過銷過之申請得由學校有關人員或受懲罰之學生向學務處領取表格，填妥資料由導師簽註具體事實，小過以下之處分由學務主任核定，大過以上之處分提學生獎懲委員會討論議決，由校長核定。' },
-            { type: 'clearance', level: '銷過', article: '第四條第(二)款', tag: '銷過時限', text: '申請改過、銷過於下列考察時段期滿後為之：1. 警告：三週以上。 2. 小過：六週以上。 3. 大過：九週以上。' },
-            { type: 'clearance', level: '銷過', article: '第四條後段', tag: '除外與轉學生', text: '前項申請於三年級下學期公佈之懲罰不適用之；經銷過之行為，於同一學年內再犯者，亦同。轉學生於學籍轉入三個月後表現良好，經由學生向導師或學務處申請認可後，方得進行銷過事宜。' },
-
-            // 第五條與簽署
-            { type: 'general', level: '實施', article: '第五條', tag: '公布實施', text: '本要點經校務會議通過後公告實施。' },
-            { type: 'general', level: '簽署', article: '簽核欄位', tag: '行政審定', text: '提案人：代理教師兼生教組長 許O銓 ｜ 學務主任：教師兼學務主任 董O達 ｜ 校長：南投國中校長 劉O彥' }
+            // === 改過銷過第四條 ===
+            { type: 'clearance', level: '銷過', article: '第四條前言', tag: '銷過規範', text: '改過銷過之申請得由學校有關人員或受懲罰之學生向學務處領取表格，填妥資料由導師簽註具體事實，小過以下之處分由學務主任核定，大過以上之處分提學生獎懲委員會討論議決，由校長核定。' },
+            { type: 'clearance', level: '銷過', article: '第四條第(二)款', tag: '銷過規範', text: '申請改過、銷過於下列考察時段期滿後為之：1. 警告：三週以上。 2. 小過：六週以上。 3. 大過：九週以上。' },
+            { type: 'clearance', level: '銷過', article: '第四條後段', tag: '銷過規範', text: '前項申請於三年級下學期公佈之懲罰不適用之；經銷過之行為，於同一學年內再犯者，亦同。轉學生於學籍轉入三個月後表現良好，經由學生向導師或學務處申請認可後，方得進行銷過事宜。' }
         ];
 
         // 狀態管理
-        let currentMainType = 'all'; // all, reward, penalty, clearance, general
-        let currentLevel = 'all'; // all, 嘉獎, 小功, 大功, 警告, 小過, 大過
+        let currentMainType = 'all'; // all, rule, reward, penalty, clearance
+        let currentLevel = 'all'; // all, 規定, 嘉獎, 小功, 大功, 警告, 小過, 大過, 銷過
         let currentTag = '';
         let currentKeyword = '';
 
@@ -768,21 +928,37 @@
         let currentMatchIndex = -1;
         let originalArticleHTML = '';
 
+        // 渲染28點規定清單
+        function renderRules28List() {
+            const container = document.getElementById('rules-28-list');
+            if (!container) return;
+            container.innerHTML = RULES_28_ITEMS.map(item => `
+                <div class="pt-3 pb-2">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="px-2 py-0.5 text-xs font-bold rounded-md bg-teal-100 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300">
+                            第${item.num}點
+                        </span>
+                        <h4 class="font-bold text-slate-900 dark:text-white">${item.title}</h4>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm pl-2">${item.desc}</p>
+                </div>
+            `).join('');
+        }
+
         // 標籤頁切換
         function switchTab(tabId) {
-            ['query', 'clearance', 'fulltext'].forEach(t => {
+            ['query', 'rules28', 'clearance', 'fulltext'].forEach(t => {
                 const el = document.getElementById(`tab-${t}`);
                 const btn = document.getElementById(`tab-btn-${t}`);
                 if (t === tabId) {
                     el.classList.remove('hidden');
-                    btn.className = 'py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2 font-bold';
+                    btn.className = 'py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2 font-bold whitespace-nowrap';
                 } else {
                     el.classList.add('hidden');
-                    btn.className = 'py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2';
+                    btn.className = 'py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2 whitespace-nowrap';
                 }
             });
 
-            // 若切換到全文閱覽且有既有搜尋關鍵字，自動帶入
             if (tabId === 'fulltext' && currentKeyword) {
                 const ftInput = document.getElementById('fulltext-search-input');
                 if (ftInput.value !== currentKeyword) {
@@ -792,7 +968,6 @@
             }
         }
 
-        // 從卡片查詢跳轉至全文閱覽
         function jumpToFullTextSearch() {
             switchTab('fulltext');
             const ftInput = document.getElementById('fulltext-search-input');
@@ -817,6 +992,8 @@
                 currentMainType = 'reward';
             } else if (lvl === '警告' || lvl === '小過' || lvl === '大過') {
                 currentMainType = 'penalty';
+            } else if (lvl === '規定') {
+                currentMainType = 'rule';
             }
             updatePillsUI();
             applyFilters();
@@ -862,7 +1039,7 @@
 
         function updatePillsUI() {
             // Main type pills
-            ['all', 'reward', 'penalty', 'clearance', 'general'].forEach(t => {
+            ['all', 'rule', 'reward', 'penalty', 'clearance'].forEach(t => {
                 const btn = document.getElementById(`type-btn-${t}`);
                 if (btn) {
                     if (currentMainType === t) {
@@ -903,13 +1080,9 @@
             const countEl = document.getElementById('results-count');
 
             const filtered = RULES_DATA.filter(item => {
-                // Type match
                 if (currentMainType !== 'all' && item.type !== currentMainType) return false;
-                // Level match
                 if (currentLevel !== 'all' && item.level !== currentLevel) return false;
-                // Tag match
                 if (currentTag && !item.tag.includes(currentTag)) return false;
-                // Keyword match (全文模糊檢索)
                 if (currentKeyword) {
                     const q = currentKeyword.toLowerCase();
                     const textMatch = item.text.toLowerCase().includes(q);
@@ -939,9 +1112,7 @@
                 '小過': 'bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-300 border-orange-300/60',
                 '大過': 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border-rose-300/60',
                 '銷過': 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border-purple-300/60',
-                '總則': 'bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-300',
-                '實施': 'bg-cyan-100 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300 border-cyan-300/60',
-                '簽署': 'bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 border-indigo-300/60',
+                '規定': 'bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 border-indigo-300/60',
             };
 
             const levelIconDots = {
@@ -952,9 +1123,7 @@
                 '小過': 'bg-orange-500',
                 '大過': 'bg-rose-500',
                 '銷過': 'bg-purple-500',
-                '總則': 'bg-slate-500',
-                '實施': 'bg-cyan-500',
-                '簽署': 'bg-indigo-500',
+                '規定': 'bg-indigo-500',
             };
 
             container.innerHTML = filtered.map((item, idx) => {
@@ -966,8 +1135,8 @@
                 let typeLabel = '📄 法規條款';
                 if (item.type === 'reward') typeLabel = '🌟 獎勵要點';
                 else if (item.type === 'penalty') typeLabel = '⚠️ 懲處要點';
+                else if (item.type === 'rule') typeLabel = '⚖️ 學生獎懲規定總則';
                 else if (item.type === 'clearance') typeLabel = '🔄 改過銷過章則';
-                else if (item.type === 'general') typeLabel = '🏛️ 總則與公報';
 
                 return `
                 <div onclick="copyText('${item.article}【${item.level}】${item.text.replace(/'/g, "\\'")}')" 
@@ -1000,9 +1169,7 @@
             }).join('');
         }
 
-        // ==========================
-        // 全文閱覽檢索 (Full-Text Search Engine)
-        // ==========================
+        // 全文閱覽檢索
         function initFullText() {
             const body = document.getElementById('fulltext-article-body');
             if (body && !originalArticleHTML) {
@@ -1053,7 +1220,6 @@
                 return;
             }
 
-            // 深度遍歷文字節點進行高亮封裝，避免破壞 HTML 結構
             body.innerHTML = originalArticleHTML;
             const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, null, false);
             const textNodes = [];
@@ -1128,7 +1294,7 @@
         // 複製文字通知
         function copyText(str) {
             navigator.clipboard.writeText(str).then(() => {
-                showToast(`已複製：${str.substring(0, 22)}...`);
+                showToast(`已複製：${str.substring(0, 24)}...`);
             }).catch(() => {
                 showToast('已選取條文');
             });
@@ -1211,6 +1377,7 @@
             updateThemeIcons(isDark);
 
             initCalculator();
+            renderRules28List();
             initFullText();
             renderCards();
         });
