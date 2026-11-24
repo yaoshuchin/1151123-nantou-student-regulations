@@ -46,59 +46,31 @@
             background-color: #854d0e;
             color: #fef08a;
         }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-8px); }
-            40%, 80% { transform: translateX(8px); }
+        mark.fulltext-match {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
         }
-        .shake {
-            animation: shake 0.4s ease-in-out;
+        .dark mark.fulltext-match {
+            background-color: #854d0e;
+            color: #fef08a;
+        }
+        mark.fulltext-match.active {
+            background-color: #f97316 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.4);
+            font-weight: 700;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased transition-colors duration-200">
 
-    <!-- 密碼登入鎖定畫面 -->
-    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-md px-4">
-        <div id="auth-card" class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-md w-full p-8 border border-slate-200 dark:border-slate-700 text-center transition-all">
-            <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-inner">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">南投縣立南投國中</h2>
-            <p class="text-sm font-medium text-teal-700 dark:text-teal-300 mb-6">學生獎懲要點暨改過銷過辦法 查詢系統</p>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">本系統受存取密碼保護，請輸入密碼以解鎖檢閱：</p>
-            
-            <form id="auth-form" onsubmit="handleAuth(event)" class="space-y-4">
-                <div class="relative">
-                    <input type="password" id="auth-input" maxlength="10" placeholder="請輸入密碼" 
-                        class="w-full px-4 py-3 text-center text-lg tracking-widest font-mono rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 dark:text-white outline-none transition" autofocus autocomplete="off" />
-                </div>
-                <div id="auth-error" class="hidden text-xs text-rose-500 font-semibold flex items-center justify-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                    </svg>
-                    <span>密碼錯誤，請重新輸入</span>
-                </div>
-                <button type="submit" 
-                    class="w-full py-3 px-4 bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-semibold rounded-xl shadow-lg shadow-teal-600/20 transition-all flex items-center justify-center gap-2">
-                    <span>解鎖進入系統</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </button>
-            </form>
-            <div class="mt-5 text-[11px] text-slate-400">
-                南投國中學務處 生教組 備案
-            </div>
-        </div>
-    </div>
-
-    <!-- 主應用介面 -->
-    <div id="app-container" class="hidden min-h-screen flex flex-col">
+    <!-- 主應用介面（已取消密碼驗證，直接開啟） -->
+    <div id="app-container" class="min-h-screen flex flex-col">
         <!-- 頂部導航 -->
-        <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center gap-3">
@@ -109,13 +81,13 @@
                         </span>
                         <div>
                             <h1 class="text-base sm:text-lg font-bold leading-tight">南投國中 學生獎懲要點查詢系統</h1>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">114年1月20日校務會議通過版本</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">114年1月20日校務會議通過版本 ｜ 支援全文檢索</p>
                         </div>
                     </div>
 
                     <!-- 右側功能鈕 -->
                     <div class="flex items-center gap-2 sm:gap-3">
-                        <a href="南投縣立南投國中獎懲要點暨改過銷過辦法.docx" download class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition border border-slate-200 dark:border-slate-700">
+                        <a href="南投縣立南投國中獎懲要點暨改過銷過辦法.docx" download class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition border border-slate-200 dark:border-slate-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
@@ -130,18 +102,12 @@
                                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                             </svg>
                         </button>
-                        <!-- 登出/鎖定 -->
-                        <button onclick="lockSystem()" class="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-lg transition" title="重新鎖定系統">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                        </button>
                     </div>
                 </div>
 
                 <!-- 分頁按鈕 -->
                 <div class="flex border-t border-slate-200/60 dark:border-slate-800 -mb-px space-x-6 text-sm font-medium">
-                    <button onclick="switchTab('query')" id="tab-btn-query" class="py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2">
+                    <button onclick="switchTab('query')" id="tab-btn-query" class="py-3 px-1 border-b-2 border-teal-600 text-teal-600 dark:text-teal-400 flex items-center gap-2 font-bold">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
@@ -157,7 +123,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <span>法規全文閱覽</span>
+                        <span>法規全文檢索與閱覽</span>
                     </button>
                 </div>
             </div>
@@ -170,34 +136,50 @@
             <div id="tab-query" class="space-y-6">
                 <!-- 搜尋與篩選列 -->
                 <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200/80 dark:border-slate-700 space-y-4">
-                    <!-- 搜尋輸入框 -->
-                    <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
+                    <!-- 全文檢索搜尋輸入框 -->
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between text-xs text-slate-500">
+                            <span class="font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                                全文關鍵字即時檢索（涵蓋全法規所有條目、銷過程序與細則）：
+                            </span>
+                            <span id="search-mode-hint" class="text-teal-600 dark:text-teal-400 font-medium">全條文檢索模式</span>
                         </div>
-                        <input type="text" id="search-input" oninput="applyFilters()" placeholder="搜尋關鍵字，例如：拾金不昧、行動載具、抽煙、毀損公物、服裝儀容、銷過..."
-                            class="w-full pl-11 pr-10 py-3 bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white dark:focus:bg-slate-700 transition">
-                        <button id="clear-search" onclick="clearSearch()" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                        </button>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <input type="text" id="search-input" oninput="applyFilters()" placeholder="輸入關鍵字進行全文檢索，例如：三年級、轉學生、拾金不昧、行動載具、抽煙、毀損公物、服裝儀容、銷過、國民教育法..."
+                                class="w-full pl-11 pr-24 py-3 bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white dark:focus:bg-slate-700 transition">
+                            <div class="absolute inset-y-0 right-0 pr-2 flex items-center gap-1">
+                                <button id="clear-search" onclick="clearSearch()" class="hidden p-1 text-slate-400 hover:text-slate-600">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                    </svg>
+                                </button>
+                                <button onclick="jumpToFullTextSearch()" title="切換至全文閱覽並定位" class="px-2.5 py-1 text-xs bg-teal-50 dark:bg-teal-950/50 hover:bg-teal-100 text-teal-700 dark:text-teal-300 font-medium rounded-lg border border-teal-200/50 transition">
+                                    跳至全文
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- 獎懲主類別選單 (Tabs) -->
                     <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-700/60">
                         <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">類型：</span>
-                        <button onclick="setMainType('all')" id="type-btn-all" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-teal-600 text-white shadow-sm">全部 (88)</button>
-                        <button onclick="setMainType('reward')" id="type-btn-reward" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 hover:text-emerald-700">獎勵措施 (32)</button>
-                        <button onclick="setMainType('penalty')" id="type-btn-penalty" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-700">懲處措施 (56)</button>
+                        <button onclick="setMainType('all')" id="type-btn-all" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-teal-600 text-white shadow-sm">全部條文 (95)</button>
+                        <button onclick="setMainType('reward')" id="type-btn-reward" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 hover:text-emerald-700">獎勵措施 (33)</button>
+                        <button onclick="setMainType('penalty')" id="type-btn-penalty" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-700">懲處措施 (57)</button>
+                        <button onclick="setMainType('clearance')" id="type-btn-clearance" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-purple-100 dark:hover:bg-purple-900/30 hover:text-purple-700">改過銷過章則 (3)</button>
+                        <button onclick="setMainType('general')" id="type-btn-general" class="type-pill px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700">總則與簽署 (2)</button>
                     </div>
 
                     <!-- 子層級（嘉獎/小功/大功/警告/小過/大過）篩選按鈕 -->
                     <div class="flex flex-wrap items-center gap-1.5 text-xs">
                         <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">等級：</span>
-                        <button onclick="setLevel('all')" id="level-btn-all" class="level-pill px-2.5 py-1 rounded-md font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100">不限</button>
+                        <button onclick="setLevel('all')" id="level-btn-all" class="level-pill px-2.5 py-1 rounded-md font-medium bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 ring-2 ring-teal-500 font-bold">不限</button>
                         <button onclick="setLevel('嘉獎')" id="level-btn-嘉獎" class="level-pill px-2.5 py-1 rounded-md font-medium bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 hover:bg-emerald-100 border border-emerald-200/50">嘉獎 (12)</button>
                         <button onclick="setLevel('小功')" id="level-btn-小功" class="level-pill px-2.5 py-1 rounded-md font-medium bg-teal-50 text-teal-700 dark:bg-teal-950/40 dark:text-teal-300 hover:bg-teal-100 border border-teal-200/50">小功 (13)</button>
                         <button onclick="setLevel('大功')" id="level-btn-大功" class="level-pill px-2.5 py-1 rounded-md font-medium bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-300 hover:bg-blue-100 border border-blue-200/50">大功 (7)</button>
@@ -220,17 +202,17 @@
                         <button onclick="filterByTag('校園暴力')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">暴力/鬥毆/勒索</button>
                         <button onclick="filterByTag('性平與霸凌')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">性騷擾/霸凌認定</button>
                         <button onclick="filterByTag('競賽活動')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">競賽優異/出賽</button>
-                        <button onclick="filterByTag('交通安全')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">道路交通安全</button>
+                        <button onclick="filterByTag('銷過規範')" class="tag-pill px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700/60 hover:bg-teal-50 dark:hover:bg-teal-900/30">銷過程序與時限</button>
                     </div>
                 </div>
 
                 <!-- 搜尋結果統計與排序 -->
                 <div class="flex items-center justify-between text-xs text-slate-500 px-1">
                     <div>
-                        符合條件項目：<span id="results-count" class="font-bold text-teal-600 dark:text-teal-400">88</span> 筆
+                        符合條件項目：<span id="results-count" class="font-bold text-teal-600 dark:text-teal-400">95</span> 筆
                     </div>
                     <div class="flex items-center gap-2">
-                        <span>點擊卡片可快速複製條文內容</span>
+                        <span>點擊任一卡片可直接複製條文內容</span>
                     </div>
                 </div>
 
@@ -252,7 +234,6 @@
 
             <!-- TAB 2: 改過銷過要點與試算 -->
             <div id="tab-clearance" class="hidden space-y-6">
-                <!-- 第四條重點導讀與試算工具 -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- 左兩欄：要點內容與規範解析 -->
                     <div class="lg:col-span-2 space-y-6">
@@ -395,8 +376,47 @@
                 </div>
             </div>
 
-            <!-- TAB 3: 法規全文閱覽 -->
-            <div id="tab-fulltext" class="hidden">
+            <!-- TAB 3: 法規全文檢索與閱覽 -->
+            <div id="tab-fulltext" class="hidden space-y-6">
+                <!-- 全文即時檢索工具列 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 dark:border-slate-700 max-w-4xl mx-auto">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                        <div class="relative flex-1">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <input type="text" id="fulltext-search-input" oninput="runFullTextSearch()" placeholder="在法規全文中尋找關鍵字（按 Enter 跳至下一處）..."
+                                class="w-full pl-9 pr-8 py-2 text-sm bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <button id="fulltext-clear-btn" onclick="clearFullTextSearch()" class="hidden absolute inset-y-0 right-0 pr-2.5 flex items-center text-slate-400 hover:text-slate-600">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- 檢索控制項 -->
+                        <div class="flex items-center justify-end gap-2 text-xs">
+                            <span id="fulltext-match-count" class="text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">
+                                未搜尋
+                            </span>
+                            <button onclick="navigateMatch(-1)" id="btn-prev-match" disabled class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-700 transition flex items-center gap-1 font-medium">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                </svg>
+                                上一處
+                            </button>
+                            <button onclick="navigateMatch(1)" id="btn-next-match" disabled class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-100 dark:hover:bg-slate-700 transition flex items-center gap-1 font-medium">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                                下一處
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200/80 dark:border-slate-700 max-w-4xl mx-auto space-y-8">
                     <!-- 標頭 -->
                     <div class="text-center pb-6 border-b border-slate-200 dark:border-slate-700">
@@ -405,8 +425,8 @@
                         <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">中華民國 114 年 1 月 20 日校務會議通過</p>
                     </div>
 
-                    <!-- 條文 -->
-                    <div class="space-y-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                    <!-- 條文全文主體容器（供全文檢索高亮替換） -->
+                    <div id="fulltext-article-body" class="space-y-6 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
                         <!-- 第一條 -->
                         <section class="space-y-2">
                             <h3 class="text-base font-bold text-slate-900 dark:text-white">第一條</h3>
@@ -574,22 +594,22 @@
                         </section>
                     </div>
 
-                    <!-- 簽署欄 (如原件核印) -->
+                    <!-- 簽署欄 (姓名第2字用 O 替代) -->
                     <div class="pt-8 border-t border-slate-200 dark:border-slate-700">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                             <div class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-600">
                                 <div class="text-xs font-semibold text-slate-400 mb-1">提案人</div>
-                                <div class="font-bold text-slate-800 dark:text-white text-base">許子銓</div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base">許O銓</div>
                                 <div class="text-xs text-slate-500">代理教師兼生教組長</div>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-600">
                                 <div class="text-xs font-semibold text-slate-400 mb-1">學務主任</div>
-                                <div class="font-bold text-slate-800 dark:text-white text-base">董勳達</div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base">董O達</div>
                                 <div class="text-xs text-slate-500">教師兼學務主任</div>
                             </div>
                             <div class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-600">
                                 <div class="text-xs font-semibold text-slate-400 mb-1">校長</div>
-                                <div class="font-bold text-slate-800 dark:text-white text-base">劉松彥</div>
+                                <div class="font-bold text-slate-800 dark:text-white text-base">劉O彥</div>
                                 <div class="text-xs text-slate-500">南投國中校長</div>
                             </div>
                         </div>
@@ -616,8 +636,14 @@
 
     <!-- 資料腳本與邏輯 -->
     <script>
-        // 資料集定義
+        // 資料集定義（擴充涵蓋全法規所有條目、銷過程序與簽核人員，提供 100% 全文檢索）
         const RULES_DATA = [
+            // 第一條：法源依據
+            { type: 'general', level: '總則', article: '第一條', tag: '法源依據', text: '本辦法依國民教育法第四十四條及南投縣國民小學及國民中學學生獎懲辦法訂定之。' },
+
+            // 第二條前言
+            { type: 'reward', level: '嘉獎', article: '第二條前言', tag: '獎勵總則', text: '國民小學及國民中學所為書面獎勵，包括嘉獎、小功及大功獎勵措施。' },
+
             // 嘉獎 (12)
             { type: 'reward', level: '嘉獎', article: '第二條第(一)項第1款', tag: '儀容常規', text: '服裝儀容經常整潔，合於規定，足為同學模範者。' },
             { type: 'reward', level: '嘉獎', article: '第二條第(一)項第2款', tag: '禮節模範', text: '禮節周到足為同學模範者。' },
@@ -655,6 +681,9 @@
             { type: 'reward', level: '大功', article: '第二條第(三)項第5款', tag: '服務奉獻', text: '參加各種服務，成績特優者。' },
             { type: 'reward', level: '大功', article: '第二條第(三)項第6款', tag: '競賽活動', text: '代表學校參加對外比賽，成績特優者。' },
             { type: 'reward', level: '大功', article: '第二條第(三)項第7款', tag: '其他優良', text: '其他優良行為適合記大功者。' },
+
+            // 第三條前言
+            { type: 'penalty', level: '警告', article: '第三條前言', tag: '懲處總則', text: '國民中學所為書面懲處措施，包括警告、小過、大過措施。' },
 
             // 警告 (16)
             { type: 'penalty', level: '警告', article: '第三條第(一)項第1款', tag: '常規秩序', text: '違反上課規定，影響教學秩序或他人學習，經教師採取一般管教措施仍未改善者。' },
@@ -716,57 +745,28 @@
             { type: 'penalty', level: '大過', article: '第三條第(三)項第15款', tag: '校園安全', text: '聚集校外人士到校滋事者。' },
             { type: 'penalty', level: '大過', article: '第三條第(三)項第16款', tag: '通報責任', text: '收留逃學、逃家同學而故意隱藏不報者。' },
             { type: 'penalty', level: '大過', article: '第三條第(三)項第17款', tag: '性平與霸凌', text: '經學校性別平等教育委員會審議認定有性侵害，或性騷擾或性霸凌為情節重大者。' },
-            { type: 'penalty', level: '大過', article: '第三條第(三)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。' }
+            { type: 'penalty', level: '大過', article: '第三條第(三)項第18款', tag: '性平與霸凌', text: '經學校校園霸凌防制委員會調查確認有霸凌行為，情節重大者。' },
+
+            // 第四條：改過銷過
+            { type: 'clearance', level: '銷過', article: '第四條前言', tag: '銷過程序', text: '改過銷過之申請得由學校有關人員或受懲罰之學生向學務處領取表格，填妥資料由導師簽註具體事實，小過以下之處分由學務主任核定，大過以上之處分提學生獎懲委員會討論議決，由校長核定。' },
+            { type: 'clearance', level: '銷過', article: '第四條第(二)款', tag: '銷過時限', text: '申請改過、銷過於下列考察時段期滿後為之：1. 警告：三週以上。 2. 小過：六週以上。 3. 大過：九週以上。' },
+            { type: 'clearance', level: '銷過', article: '第四條後段', tag: '除外與轉學生', text: '前項申請於三年級下學期公佈之懲罰不適用之；經銷過之行為，於同一學年內再犯者，亦同。轉學生於學籍轉入三個月後表現良好，經由學生向導師或學務處申請認可後，方得進行銷過事宜。' },
+
+            // 第五條與簽署
+            { type: 'general', level: '實施', article: '第五條', tag: '公布實施', text: '本要點經校務會議通過後公告實施。' },
+            { type: 'general', level: '簽署', article: '簽核欄位', tag: '行政審定', text: '提案人：代理教師兼生教組長 許O銓 ｜ 學務主任：教師兼學務主任 董O達 ｜ 校長：南投國中校長 劉O彥' }
         ];
 
         // 狀態管理
-        let currentMainType = 'all'; // all, reward, penalty
+        let currentMainType = 'all'; // all, reward, penalty, clearance, general
         let currentLevel = 'all'; // all, 嘉獎, 小功, 大功, 警告, 小過, 大過
         let currentTag = '';
         let currentKeyword = '';
 
-        // 密碼驗證
-        function checkInitAuth() {
-            if (sessionStorage.getItem('ntjh_auth') === '049_verified') {
-                showApp();
-            } else {
-                document.getElementById('auth-modal').classList.remove('hidden');
-                document.getElementById('app-container').classList.add('hidden');
-                setTimeout(() => document.getElementById('auth-input').focus(), 150);
-            }
-        }
-
-        function handleAuth(e) {
-            e.preventDefault();
-            const input = document.getElementById('auth-input');
-            const pwd = input.value.trim();
-            const err = document.getElementById('auth-error');
-            const card = document.getElementById('auth-card');
-
-            if (pwd === '049') {
-                sessionStorage.setItem('ntjh_auth', '049_verified');
-                err.classList.add('hidden');
-                showApp();
-            } else {
-                err.classList.remove('hidden');
-                card.classList.add('shake');
-                input.value = '';
-                input.focus();
-                setTimeout(() => card.classList.remove('shake'), 400);
-            }
-        }
-
-        function showApp() {
-            document.getElementById('auth-modal').classList.add('hidden');
-            document.getElementById('app-container').classList.remove('hidden');
-            initCalculator();
-            renderCards();
-        }
-
-        function lockSystem() {
-            sessionStorage.removeItem('ntjh_auth');
-            location.reload();
-        }
+        // 全文閱覽搜尋狀態
+        let fullTextMatches = [];
+        let currentMatchIndex = -1;
+        let originalArticleHTML = '';
 
         // 標籤頁切換
         function switchTab(tabId) {
@@ -781,6 +781,26 @@
                     btn.className = 'py-3 px-1 border-b-2 border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 flex items-center gap-2';
                 }
             });
+
+            // 若切換到全文閱覽且有既有搜尋關鍵字，自動帶入
+            if (tabId === 'fulltext' && currentKeyword) {
+                const ftInput = document.getElementById('fulltext-search-input');
+                if (ftInput.value !== currentKeyword) {
+                    ftInput.value = currentKeyword;
+                    runFullTextSearch();
+                }
+            }
+        }
+
+        // 從卡片查詢跳轉至全文閱覽
+        function jumpToFullTextSearch() {
+            switchTab('fulltext');
+            const ftInput = document.getElementById('fulltext-search-input');
+            ftInput.value = currentKeyword;
+            runFullTextSearch();
+            if (fullTextMatches.length > 0) {
+                navigateMatch(1);
+            }
         }
 
         // 篩選與渲染
@@ -842,7 +862,7 @@
 
         function updatePillsUI() {
             // Main type pills
-            ['all', 'reward', 'penalty'].forEach(t => {
+            ['all', 'reward', 'penalty', 'clearance', 'general'].forEach(t => {
                 const btn = document.getElementById(`type-btn-${t}`);
                 if (btn) {
                     if (currentMainType === t) {
@@ -868,8 +888,13 @@
 
         function highlightMatch(text, keyword) {
             if (!keyword) return text;
-            const regex = new RegExp(`(${keyword.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-            return text.replace(regex, '<span class="highlight">$1</span>');
+            const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            try {
+                const regex = new RegExp('(' + escaped + ')', 'gi');
+                return text.replace(regex, '<span class="highlight">$1</span>');
+            } catch (e) {
+                return text;
+            }
         }
 
         function renderCards() {
@@ -883,8 +908,8 @@
                 // Level match
                 if (currentLevel !== 'all' && item.level !== currentLevel) return false;
                 // Tag match
-                if (currentTag && item.tag !== currentTag) return false;
-                // Keyword match
+                if (currentTag && !item.tag.includes(currentTag)) return false;
+                // Keyword match (全文模糊檢索)
                 if (currentKeyword) {
                     const q = currentKeyword.toLowerCase();
                     const textMatch = item.text.toLowerCase().includes(q);
@@ -913,6 +938,10 @@
                 '警告': 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border-amber-300/60',
                 '小過': 'bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-300 border-orange-300/60',
                 '大過': 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300 border-rose-300/60',
+                '銷過': 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 border-purple-300/60',
+                '總則': 'bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-slate-300',
+                '實施': 'bg-cyan-100 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-300 border-cyan-300/60',
+                '簽署': 'bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300 border-indigo-300/60',
             };
 
             const levelIconDots = {
@@ -922,6 +951,10 @@
                 '警告': 'bg-amber-500',
                 '小過': 'bg-orange-500',
                 '大過': 'bg-rose-500',
+                '銷過': 'bg-purple-500',
+                '總則': 'bg-slate-500',
+                '實施': 'bg-cyan-500',
+                '簽署': 'bg-indigo-500',
             };
 
             container.innerHTML = filtered.map((item, idx) => {
@@ -929,6 +962,12 @@
                 const dotClass = levelIconDots[item.level] || 'bg-slate-400';
                 const highlightedText = highlightMatch(item.text, currentKeyword);
                 const highlightedArticle = highlightMatch(item.article, currentKeyword);
+
+                let typeLabel = '📄 法規條款';
+                if (item.type === 'reward') typeLabel = '🌟 獎勵要點';
+                else if (item.type === 'penalty') typeLabel = '⚠️ 懲處要點';
+                else if (item.type === 'clearance') typeLabel = '🔄 改過銷過章則';
+                else if (item.type === 'general') typeLabel = '🏛️ 總則與公報';
 
                 return `
                 <div onclick="copyText('${item.article}【${item.level}】${item.text.replace(/'/g, "\\'")}')" 
@@ -948,7 +987,7 @@
                     </div>
 
                     <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700/50 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>${item.type === 'reward' ? '🌟 獎勵要點' : '⚠️ 懲處要點'}</span>
+                        <span>${typeLabel}</span>
                         <span class="flex items-center gap-1 group-hover:text-teal-600 transition">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -961,10 +1000,135 @@
             }).join('');
         }
 
+        // ==========================
+        // 全文閱覽檢索 (Full-Text Search Engine)
+        // ==========================
+        function initFullText() {
+            const body = document.getElementById('fulltext-article-body');
+            if (body && !originalArticleHTML) {
+                originalArticleHTML = body.innerHTML;
+            }
+
+            const input = document.getElementById('fulltext-search-input');
+            if (input) {
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (e.shiftKey) {
+                            navigateMatch(-1);
+                        } else {
+                            navigateMatch(1);
+                        }
+                    }
+                });
+            }
+        }
+
+        function runFullTextSearch() {
+            const input = document.getElementById('fulltext-search-input');
+            const clearBtn = document.getElementById('fulltext-clear-btn');
+            const countEl = document.getElementById('fulltext-match-count');
+            const prevBtn = document.getElementById('btn-prev-match');
+            const nextBtn = document.getElementById('btn-next-match');
+            const body = document.getElementById('fulltext-article-body');
+
+            const query = input.value.trim();
+            if (query) {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            if (!originalArticleHTML) {
+                originalArticleHTML = body.innerHTML;
+            }
+
+            if (!query) {
+                body.innerHTML = originalArticleHTML;
+                fullTextMatches = [];
+                currentMatchIndex = -1;
+                countEl.textContent = '未搜尋';
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+
+            // 深度遍歷文字節點進行高亮封裝，避免破壞 HTML 結構
+            body.innerHTML = originalArticleHTML;
+            const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, null, false);
+            const textNodes = [];
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+
+            const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(escaped, 'gi');
+
+            textNodes.forEach(node => {
+                const text = node.nodeValue;
+                if (regex.test(text)) {
+                    regex.lastIndex = 0;
+                    const span = document.createElement('span');
+                    span.innerHTML = text.replace(regex, '<mark class="fulltext-match">$&</mark>');
+                    node.parentNode.replaceChild(span, node);
+                }
+            });
+
+            fullTextMatches = Array.from(body.querySelectorAll('mark.fulltext-match'));
+
+            if (fullTextMatches.length > 0) {
+                currentMatchIndex = 0;
+                updateMatchUI();
+                highlightActiveMatch();
+                prevBtn.disabled = false;
+                nextBtn.disabled = false;
+            } else {
+                currentMatchIndex = -1;
+                countEl.textContent = '查無相符處';
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+            }
+        }
+
+        function clearFullTextSearch() {
+            const input = document.getElementById('fulltext-search-input');
+            input.value = '';
+            runFullTextSearch();
+            input.focus();
+        }
+
+        function navigateMatch(direction) {
+            if (fullTextMatches.length === 0) return;
+            currentMatchIndex += direction;
+            if (currentMatchIndex >= fullTextMatches.length) {
+                currentMatchIndex = 0;
+            } else if (currentMatchIndex < 0) {
+                currentMatchIndex = fullTextMatches.length - 1;
+            }
+            updateMatchUI();
+            highlightActiveMatch();
+        }
+
+        function updateMatchUI() {
+            const countEl = document.getElementById('fulltext-match-count');
+            countEl.textContent = `第 ${currentMatchIndex + 1} / ${fullTextMatches.length} 處相符`;
+        }
+
+        function highlightActiveMatch() {
+            fullTextMatches.forEach((m, idx) => {
+                if (idx === currentMatchIndex) {
+                    m.classList.add('active');
+                    m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    m.classList.remove('active');
+                }
+            });
+        }
+
         // 複製文字通知
         function copyText(str) {
             navigator.clipboard.writeText(str).then(() => {
-                showToast(`已複製：${str.substring(0, 20)}...`);
+                showToast(`已複製：${str.substring(0, 22)}...`);
             }).catch(() => {
                 showToast('已選取條文');
             });
@@ -1046,7 +1210,9 @@
             }
             updateThemeIcons(isDark);
 
-            checkInitAuth();
+            initCalculator();
+            initFullText();
+            renderCards();
         });
     </script>
 </body>
