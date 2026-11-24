@@ -4,6 +4,7 @@
 
 🌐 **線上網頁版**：經由 GitHub Pages 發布提供線上即時檢閱與試算。  
 👉 **系統網址**：[https://yaoshuchin.github.io/1151123-nantou-student-regulations/](https://yaoshuchin.github.io/1151123-nantou-student-regulations/)  
+🔍 **AI 條文搜尋**：[NotebookLM 條文搜尋系統](https://notebook.google.com/notebook/65dfc349-51da-4751-acef-7eb6ddefce53)  
 🔓 **免密碼開放檢索**：直接點開即可使用。
 
 ---
@@ -52,7 +53,7 @@
 - **審議歷程**：南投縣立南投國民中學 114 年 8 月 29 日、115 年 1 月 20 日校務會議通過，115 年 10 月 29 日修正。
 - **行政核定人員**（姓名依去識別化處理）：
   - 提案人：代理教師兼生教組長 許O銓
-  - 學務主任：教師兼學務主任 董O達
+  - 學務主任：教師兼學務主任 董O遠
   - 校長：南投國中校長 劉O彥
 - **校址**：540 南投市民族路 328 號
 - **業務承辦**：南投國中學務處生活教育組
